@@ -643,10 +643,13 @@ class GameState {
 
         // Random Injury Risk for assigned detectives
         // Higher risk if CHAOS or HIGH crime, and modified by upgrades
-        let baseRisk = 0.01; // 1% per second per detective? That's too high.
-        // Let's make it 3% global chance per second that ONE detective gets injured
-        if (this.state.crimeRate === 'CHAOS') baseRisk = 0.08;
-        else if (this.state.crimeRate === 'HIGH') baseRisk = 0.05;
+        // Random Injury Risk for assigned detectives
+        // Reduced frequency based on user feedback (too high even when safe)
+        // Checks once per second globally
+        let baseRisk = 0.001; // 0.1% chance per second (Safe)
+        if (this.state.crimeRate === 'CHAOS') baseRisk = 0.04; // 4% (Chaos)
+        else if (this.state.crimeRate === 'HIGH') baseRisk = 0.015; // 1.5% (High)
+        else if (this.state.crimeRate === 'MEDIUM') baseRisk = 0.005; // 0.5% (Medium)
 
         // Apply Risk Management Upgrade
         const riskReduction = this.getRiskReduction();

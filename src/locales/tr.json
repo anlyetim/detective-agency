@@ -69,7 +69,8 @@
         "viewDetails": "(Detayları görmek için tıklayın)",
         "assignDetective": "Dedektif Ata...",
         "noQualifiedDetectives": "Uygun dedektif yok",
-        "progress": "Soruşturma İlerlemesi"
+        "progress": "Soruşturma İlerlemesi",
+        "investigationPaused": "Vaka Donduruldu."
     },
     "items": {
         "title": "Eşyalar ve Ekipman",

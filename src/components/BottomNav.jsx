@@ -43,7 +43,7 @@ export default function BottomNav({ currentScreen, onNavigate }) {
                 className={`nav-button ${currentScreen === 'settings' ? 'active' : ''}`}
                 onClick={() => onNavigate('settings')}
             >
-                <img src="/pics/iconsettings.png" alt="Settings" className="nav-icon" />
+                <img src="/pics/icons_settings.png" alt="Settings" className="nav-icon" />
             </button>
         </div>
     );

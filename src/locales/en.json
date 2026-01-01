@@ -69,7 +69,8 @@
         "viewDetails": "(Click to view details)",
         "assignDetective": "Assign Detective...",
         "noQualifiedDetectives": "No qualified detectives available",
-        "progress": "Investigation Progress"
+        "progress": "Investigation Progress",
+        "investigationPaused": "Investigation Paused."
     },
     "items": {
         "title": "Items & Equipment",

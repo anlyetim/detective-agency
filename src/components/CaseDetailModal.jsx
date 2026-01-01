@@ -111,7 +111,7 @@ export default function CaseDetailModal({ caseObj, onClose, onProgressUpdate }) 
                         color: rarityColor
                     }}
                 >
-                    {caseObj.title}
+                    {t(caseObj.title)}
                 </h2>
 
                 <div style={{
