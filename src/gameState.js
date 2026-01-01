@@ -545,6 +545,87 @@ class GameState {
         return GameState.CASE_THRESHOLDS[currentLevel];
     }
 
+    // ===== DETECTIVE UNLOCK SYSTEM =====
+    checkUnlocks() {
+        console.log('[DEBUG] checkUnlocks called');
+        let anyUnlocked = false;
+
+        this.state.detectives.forEach(detective => {
+            if (detective.unlocked) return; // Already unlocked
+
+            let progress = 0;
+            let shouldUnlock = false;
+
+            // Check unlock conditions based on detective id
+            switch (detective.id) {
+                case 1: // Detective Noir - Solve 3 Common cases
+                    progress = this.state.completedCommonCases || 0;
+                    shouldUnlock = progress >= detective.unlockRequired;
+                    break;
+
+                case 2: // Agent Shadow - Earn 500 coins total
+                    progress = this.state.totalCoinsEarned || 0;
+                    shouldUnlock = progress >= detective.unlockRequired;
+                    break;
+
+                case 4: // Inspector Steel - Solve 10 cases total
+                    progress = this.state.completedCases || 0;
+                    shouldUnlock = progress >= detective.unlockRequired;
+                    break;
+
+                case 5: // Detective Crimson - Equip 4 items on any detective
+                    // Count max equipped items on any single detective
+                    let maxEquipped = 0;
+                    this.state.detectives.forEach(d => {
+                        if (d.equipment) {
+                            const equipped = d.equipment.filter(slot => slot !== null).length;
+                            if (equipped > maxEquipped) maxEquipped = equipped;
+                        }
+                    });
+                    progress = maxEquipped;
+                    shouldUnlock = progress >= detective.unlockRequired;
+                    break;
+
+                case 3: // Master Phantom - Complete 2 Veteran cases
+                    progress = this.state.completedVeteranCases || 0;
+                    shouldUnlock = progress >= detective.unlockRequired;
+                    break;
+
+                case 7: // Legendary Oracle - Reach Agency Level 10
+                    progress = this.state.level || 1;
+                    shouldUnlock = progress >= detective.unlockRequired;
+                    break;
+            }
+
+            // Update progress
+            detective.unlockProgress = Math.min(progress, detective.unlockRequired);
+
+            // Unlock if condition met
+            if (shouldUnlock) {
+                detective.unlocked = true;
+                anyUnlocked = true;
+                console.log('[DEBUG] Unlocked detective:', detective.name);
+
+                // Add unlock notification
+                this.addNewsEvent({
+                    titleKey: 'newspaper.events.DETECTIVE_UNLOCKED.title',
+                    descriptionKey: 'newspaper.events.DETECTIVE_UNLOCKED.description',
+                    params: { name: detective.name },
+                    title: 'Detective Unlocked!',
+                    description: `${detective.name} has joined your agency!`,
+                    timestamp: Date.now(),
+                    effect: 'New Detective'
+                });
+            }
+        });
+
+        if (anyUnlocked) {
+            this.saveState();
+        }
+
+        console.log('[DEBUG] checkUnlocks completed, anyUnlocked:', anyUnlocked);
+    }
+
     // Newspaper System
     updateNews() {
         // GATING: No news or events before Level 5
