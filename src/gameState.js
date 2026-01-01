@@ -274,6 +274,7 @@ class GameState {
                 if (!this.state.crimeRate) this.state.crimeRate = 'MEDIUM';
                 if (!this.state.newsEvents) this.state.newsEvents = [];
                 if (!this.state.nextEventId) this.state.nextEventId = 1;
+                if (this.state.autoAssignUnlocked === undefined) this.state.autoAssignUnlocked = false;
                 // Ensure all detectives have injury and equipment fields
                 this.state.detectives.forEach(d => {
                     if (d.injured === undefined) d.injured = false;

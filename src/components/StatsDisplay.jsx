@@ -20,6 +20,14 @@ export default function StatsDisplay() {
             <div className="stat-item">
                 <span style={{ color: '#FFD700' }}>{t('common.level')}</span>
                 <span>{level}</span>
+
+                {/* Level Progress Bar - Moved here for better alignment */}
+                <div className="xp-bar-container" title="Level Progress" style={{ margin: '0 8px', width: '80px', height: '10px' }}>
+                    <div
+                        className="xp-bar-fill"
+                        style={{ width: `${gameState.getLevelProgress()}%` }}
+                    ></div>
+                </div>
             </div>
 
             <div className="stat-item">
