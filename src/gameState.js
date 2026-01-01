@@ -340,304 +340,71 @@ class GameState {
         this.saveState();
     }
 
+    // XP Thresholds for Levels based on cases (5, 10, 15, 25)
+    static XP_THRESHOLDS = [0, 125, 375, 750, 1375, 2000, 3000, 4000, 5000, 10000];
+
     addExperience(amount) {
         this.state.experience += amount;
-        const newLevel = Math.floor(this.state.experience / 100) + 1;
+
+        // Calculate Level based on thresholds
+        let newLevel = 1;
+        for (let i = 0; i < GameState.XP_THRESHOLDS.length; i++) {
+            if (this.state.experience >= GameState.XP_THRESHOLDS[i]) {
+                newLevel = i + 1;
+            } else {
+                break;
+            }
+        }
+
         if (newLevel > this.state.level) {
+            // Level Up Event could be triggered here
             this.state.level = newLevel;
             this.checkUnlocks();
+
+            // Notification for unlocking Newspaper at Level 5
+            if (newLevel === 5) {
+                // This will be handled by UI observing the level
+                this.addNewsEvent({
+                    titleKey: 'newspaper.events.NEWSPAPER_UNLOCKED.title',
+                    descriptionKey: 'newspaper.events.NEWSPAPER_UNLOCKED.description',
+                    title: 'Newspaper Unlocked',
+                    description: 'Access to city news and risk alerts is now available.',
+                    timestamp: Date.now(),
+                    effect: 'Unlock'
+                });
+            }
         }
         this.saveState();
+    }
+
+    getLevelProgress() {
+        const currentLevel = this.state.level; // 1-based
+        const currentXP = this.state.experience; // Total XP
+
+        // If max level
+        if (currentLevel >= GameState.XP_THRESHOLDS.length) return 100;
+
+        const currentThreshold = GameState.XP_THRESHOLDS[currentLevel - 1]; // XP needed for current level start
+        const nextThreshold = GameState.XP_THRESHOLDS[currentLevel]; // XP needed for next level
+
+        // Prevent division by zero
+        if (nextThreshold === currentThreshold) return 100;
+
+        const progress = Math.min(Math.max((currentXP - currentThreshold) / (nextThreshold - currentThreshold) * 100, 0), 100);
+        return progress;
+    }
+
+    getNextLevelXP() {
+        const currentLevel = this.state.level;
+        if (currentLevel >= GameState.XP_THRESHOLDS.length) return 'MAX';
+        return GameState.XP_THRESHOLDS[currentLevel];
     }
 
     // Newspaper System
     updateNews() {
-        // Chance to generate new event
-        if (Math.random() < 0.001) { // roughly every 16 seconds at 60fps called from game loop? No, this will be called every second from App.js
-            // Wait, App.js calls gameLoop every 1000ms. 0.001 is too low 1/1000. 
-            // If called every second, 0.001 means 1 in 1000 seconds ~ 16 mins.
-            // Let's make it more frequent. Maybe 5% chance every second? ~every 20 seconds.
-            // Or better, just track time.
-        }
-    }
+        // GATING: No news or events before Level 5
+        if (this.state.level < 5) return;
 
-
-
-    // We'll replace the whole block later.
-
-
-    addCase(caseData) {
-        this.state.cases.push(caseData);
-        this.saveState();
-    }
-
-    removeCase(caseId) {
-        this.state.cases = this.state.cases.filter(c => c.id !== caseId);
-        this.saveState();
-    }
-
-    updateCase(caseId, updates) {
-        const caseIndex = this.state.cases.findIndex(c => c.id === caseId);
-        if (caseIndex !== -1) {
-            this.state.cases[caseIndex] = { ...this.state.cases[caseIndex], ...updates };
-            this.saveState();
-        }
-    }
-
-    assignDetectiveToCase(detectiveId, caseId) {
-        const detective = this.state.detectives.find(d => d.id === detectiveId);
-        if (detective) {
-            detective.assigned = true;
-            detective.caseId = caseId;
-
-            const caseObj = this.state.cases.find(c => c.id === caseId);
-            if (caseObj) {
-                caseObj.assignedDetectiveId = detectiveId;
-                caseObj.startTime = Date.now();
-                caseObj.textIndex = 0;
-            }
-
-            this.saveState();
-        }
-    }
-
-    unassignDetective(detectiveId) {
-        const detective = this.state.detectives.find(d => d.id === detectiveId);
-        if (detective) {
-            const caseId = detective.caseId;
-            detective.assigned = false;
-            detective.caseId = null;
-
-            if (caseId) {
-                const caseObj = this.state.cases.find(c => c.id === caseId);
-                if (caseObj) {
-                    caseObj.assignedDetectiveId = null;
-                    caseObj.startTime = null;
-                }
-            }
-
-            this.saveState();
-        }
-    }
-
-    completeCase(caseId) {
-        const caseObj = this.state.cases.find(c => c.id === caseId);
-        if (caseObj && caseObj.assignedDetectiveId) {
-            const detectiveId = caseObj.assignedDetectiveId;
-            const stats = this.getDetectiveStats(detectiveId);
-
-            this.unassignDetective(detectiveId);
-
-            // Calculate Rewards with Bonuses
-            let cashReward = caseObj.reward;
-            if (stats && stats.incomeBoost > 0) {
-                // Apply income boost (percentage)
-                cashReward += Math.floor(cashReward * (stats.incomeBoost / 100));
-            }
-
-            this.addCurrency(cashReward);
-            this.addExperience(caseObj.experienceReward);
-
-            // Track case completion by difficulty
-            if (caseObj.difficulty === 'COMMON') this.state.completedCommonCases++;
-            if (caseObj.difficulty === 'VETERAN') this.state.completedVeteranCases++;
-
-            this.removeCase(caseId);
-            this.state.completedCases++;
-
-            // Random item drop
-            if (Math.random() < 0.3) {
-                this.addItem(this.generateRandomItem());
-            }
-
-            this.checkUnlocks();
-            this.saveState();
-        }
-    }
-
-    toggleAutoAssign() {
-        this.state.autoAssignMode = !this.state.autoAssignMode;
-        this.saveState();
-    }
-
-    updateSettings(settings) {
-        this.state.settings = { ...this.state.settings, ...settings };
-        this.saveState();
-    }
-
-
-
-    getActiveDetectives() {
-        return this.state.detectives.filter(d => d.unlocked && d.assigned);
-    }
-
-    // Item system
-    addItem(item) {
-        item.id = this.state.nextItemId++;
-        this.state.items.push(item);
-        this.saveState();
-    }
-
-    removeItem(itemId) {
-        this.state.items = this.state.items.filter(i => i.id !== itemId);
-        this.saveState();
-    }
-
-    equipItem(detectiveId, itemId, slotIndex) {
-        const detective = this.state.detectives.find(d => d.id === detectiveId);
-        const item = this.state.items.find(i => i.id === itemId);
-
-        if (detective && item && slotIndex >= 0 && slotIndex < 4) {
-            // Unequip current item in slot if any
-            if (detective.equipment[slotIndex]) {
-                detective.equipment[slotIndex] = null;
-            }
-
-            // Equip new item
-            detective.equipment[slotIndex] = itemId;
-            this.checkUnlocks();
-            this.saveState();
-        }
-    }
-
-    unequipItem(detectiveId, slotIndex) {
-        const detective = this.state.detectives.find(d => d.id === detectiveId);
-        if (detective && slotIndex >= 0 && slotIndex < 4) {
-            detective.equipment[slotIndex] = null;
-            this.saveState();
-        }
-    }
-
-    generateRandomItem() {
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
-        const itemIds = Object.keys(ITEM_DEFINITIONS);
-        const randomId = itemIds[Math.floor(Math.random() * itemIds.length)];
-
-        return {
-            id: this.state.nextItemId++,
-            definitionId: randomId,
-            level: 1
-        };
-    }
-
-    getDetectiveStats(detectiveId) {
-        const detective = this.state.detectives.find(d => d.id === detectiveId);
-        if (!detective) return null;
-
-        let stats = {
-            speed: detective.speed,
-            evidence: detective.evidence,
-            intelligence: detective.intelligence,
-            risk: detective.risk,
-            // Modifiers
-            injuryReduction: 0,
-            healingSpeed: 0,
-            caseSpeed: 0,
-            evidenceSpeed: 0,
-            thinkingSpeed: 0,
-            dodgeChance: 0,
-            incomeBoost: 0
-        };
-
-        // Apply equipment bonuses
-        if (detective.equipment && Array.isArray(detective.equipment)) {
-            detective.equipment.forEach(itemId => {
-                if (itemId) {
-                    const item = this.state.items.find(i => i.id === itemId);
-                    if (item && item.definitionId) {
-                        const def = this.getItemDefinition(item.definitionId);
-                        const effectValue = this.getItemEffect(item);
-
-                        if (def && effectValue > 0) {
-                            switch (def.effectType) {
-                                case 'stat_speed':
-                                    stats.speed += effectValue;
-                                    break;
-                                case 'stat_evidence':
-                                    stats.evidence += effectValue;
-                                    break;
-                                case 'stat_intelligence':
-                                    stats.intelligence += effectValue;
-                                    break;
-                                case 'stat_risk':
-                                    stats.risk += effectValue;
-                                    break;
-                                case 'injury_reduction':
-                                    stats.injuryReduction += effectValue;
-                                    break;
-                                case 'healing_speed':
-                                    stats.healingSpeed += effectValue;
-                                    break;
-                                case 'case_speed':
-                                    stats.caseSpeed += effectValue;
-                                    break;
-                                case 'evidence_speed':
-                                    stats.evidenceSpeed += effectValue;
-                                    break;
-                                case 'thinking_speed':
-                                    stats.thinkingSpeed += effectValue;
-                                    break;
-                                case 'dodge_chance':
-                                    stats.dodgeChance += effectValue;
-                                    break;
-                                case 'income_boost':
-                                    stats.incomeBoost += effectValue;
-                                    break;
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        return stats;
-    }
-
-    checkUnlocks() {
-        this.state.detectives.forEach(detective => {
-            if (detective.unlocked) return;
-
-            let progress = 0;
-
-            if (detective.unlockTask.includes('Common cases')) {
-                progress = this.state.completedCommonCases;
-            } else if (detective.unlockTask.includes('coins')) {
-                progress = this.state.totalCoinsEarned;
-            } else if (detective.unlockTask.includes('cases total')) {
-                progress = this.state.completedCases;
-            } else if (detective.unlockTask.includes('Equip 4 items')) {
-                const equipped = this.state.detectives.reduce((acc, d) => {
-                    return acc + d.equipment.filter(e => e !== null).length;
-                }, 0);
-                progress = equipped >= 4 ? 4 : equipped;
-            } else if (detective.unlockTask.includes('Veteran cases')) {
-                progress = this.state.completedVeteranCases;
-            } else if (detective.unlockTask.includes('Level')) {
-                progress = this.state.level;
-            }
-
-            detective.unlockProgress = progress;
-
-            if (progress >= detective.unlockRequired) {
-                detective.unlocked = true;
-            }
-        });
-    }
-
-    // Newspaper & Injury System
-    getCrimeRate() {
-        const influence = this.state.moodInfluence !== undefined ? this.state.moodInfluence : 50;
-        if (influence >= 90) return 'CHAOS';
-        if (influence >= 75) return 'HIGH';
-        if (influence <= 25) return 'LOW';
-        return 'MEDIUM';
-    }
-
-    getNewsEvents() {
-        return this.state.newsEvents || [];
-    }
-
-    updateNews() {
         // Mood Influence Decay (Trend towards 50)
         // Decay happens once per second (called by game loop)
         if (this.state.moodInfluence !== undefined) {
@@ -863,6 +630,9 @@ class GameState {
     };
 
     injureDetective(detectiveId) {
+        // GATING: No injuries before Level 5
+        if (this.state.level < 5) return;
+
         const detective = this.state.detectives.find(d => d.id === detectiveId);
         if (detective && !detective.injured) {
             // CHECK DODGE CHANCE

@@ -245,6 +245,8 @@
     },
     "newspaper": {
         "title": "ŞEHİR GAZETESİ",
+        "locked": "Gazete Kilitli",
+        "unlocksAtLevel5": "Haberlere erişim Seviye 5'te açılır.",
         "injuredDetectives": "Yaralı Dedektifler",
         "healsIn": "İyileşme:",
         "healButton": "İyileştir ($200)",
@@ -273,6 +275,10 @@
             "chaos": "KAOS"
         },
         "events": {
+            "NEWSPAPER_UNLOCKED": {
+                "title": "Şehir Gazetesi Açıldı!",
+                "description": "Artık şehir haberlerine, risk uyarılarına ve halkın nabzına erişebilirsiniz."
+            },
             "CRIME_WAVE": {
                 "title": "Şehir Merkezinde Suç Oranı Arttı",
                 "description": "Analistler soygun ve hırsızlık olaylarında endişe verici bir artış bildiriyor. Vatandaşların hava karardıktan sonra içeride kalmaları tavsiye ediliyor."

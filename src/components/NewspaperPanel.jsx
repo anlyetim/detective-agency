@@ -44,19 +44,21 @@ export default function NewspaperPanel({ onStateChange }) {
         return `${hours} ${hours > 1 ? t('newspaper.time.hoursAgo') : t('newspaper.time.hourAgo')}`;
     };
 
+    const isLocked = gameState.getLevel() < 5;
+
     return (
         <div className="newspaper-overlay">
-            <div className="newspaper-panel">
+            <div className="newspaper-panel" style={{ position: 'relative' }}>
                 <h1 className="newspaper-title" style={{
                     fontFamily: 'Minecraftia, monospace',
                     textAlign: 'center',
                     fontSize: '24px',
                     margin: '20px 0 10px 0',
-                    borderBottom: `2px solid ${getHeaderColor()}`,
+                    borderBottom: `2px solid ${isLocked ? '#444' : getHeaderColor()}`,
                     paddingBottom: '10px',
                     textTransform: 'uppercase',
                     letterSpacing: '2px',
-                    color: getHeaderColor(),
+                    color: isLocked ? '#444' : getHeaderColor(),
                     transition: 'all 0.5s ease',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -65,43 +67,66 @@ export default function NewspaperPanel({ onStateChange }) {
                     <span style={{ flex: 1, textAlign: 'center' }}>
                         {t('newspaper.title')}
                     </span>
-                    <span style={{
-                        fontSize: '12px',
-                        fontFamily: 'Minecraftia, monospace',
-                        background: getHeaderColor(),
-                        color: '#fff',
-                        padding: '4px 8px',
-                        borderRadius: '4px',
-                        letterSpacing: '1px',
-                        fontWeight: 'bold',
-                        transition: 'all 0.5s ease',
-                        boxShadow: `0 0 10px ${getHeaderColor()}aa`
-                    }}>
-                        {getCrimeRateLabel()}
-                    </span>
+                    {!isLocked && (
+                        <span style={{
+                            fontSize: '12px',
+                            fontFamily: 'Minecraftia, monospace',
+                            background: getHeaderColor(),
+                            color: '#fff',
+                            padding: '4px 8px',
+                            borderRadius: '4px',
+                            letterSpacing: '1px',
+                            fontWeight: 'bold',
+                            transition: 'all 0.5s ease',
+                            boxShadow: `0 0 10px ${getHeaderColor()}aa`
+                        }}>
+                            {getCrimeRateLabel()}
+                        </span>
+                    )}
                 </h1>
 
-                {newsEvents.length === 0 ? (
-                    <div className="newspaper-body" style={{ textAlign: 'center', fontStyle: 'italic', marginTop: '100px' }}>
-                        {t('newspaper.noNews')}
+                {isLocked ? (
+                    <div className="newspaper-locked" style={{
+                        textAlign: 'center',
+                        padding: '40px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '20px'
+                    }}>
+                        <div style={{ fontSize: '48px', color: '#666' }}>🔒</div>
+                        <div style={{ fontFamily: 'Minecraftia, monospace', fontSize: '18px', color: '#666' }}>
+                            {t('newspaper.locked')}
+                        </div>
+                        <div style={{ fontSize: '14px', color: '#888' }}>
+                            {t('newspaper.unlocksAtLevel5')}
+                        </div>
                     </div>
                 ) : (
-                    newsEvents.map((event, index) => (
-                        <div key={event.id} className={event.read ? "newspaper-read" : ""}>
-                            <div className="newspaper-headline">
-                                {event.titleKey ? t(event.titleKey) : event.title}
+                    <>
+                        {newsEvents.length === 0 ? (
+                            <div className="newspaper-body" style={{ textAlign: 'center', fontStyle: 'italic', marginTop: '100px' }}>
+                                {t('newspaper.noNews')}
                             </div>
-                            <div className="newspaper-date">
-                                {formatTime(event.timestamp)}
-                            </div>
-                            <div className="newspaper-body">
-                                {event.descriptionKey ? t(event.descriptionKey, {
-                                    ...event.params,
-                                    name: event.params && event.params.name && event.params.name.startsWith('items.') ? t(event.params.name) : (event.params ? event.params.name : '')
-                                }) : event.description}
-                            </div>
-                        </div>
-                    ))
+                        ) : (
+                            newsEvents.map((event, index) => (
+                                <div key={event.id} className={event.read ? "newspaper-read" : ""}>
+                                    <div className="newspaper-headline">
+                                        {event.titleKey ? t(event.titleKey) : event.title}
+                                    </div>
+                                    <div className="newspaper-date">
+                                        {formatTime(event.timestamp)}
+                                    </div>
+                                    <div className="newspaper-body">
+                                        {event.descriptionKey ? t(event.descriptionKey, {
+                                            ...event.params,
+                                            name: event.params && event.params.name && event.params.name.startsWith('items.') ? t(event.params.name) : (event.params ? event.params.name : '')
+                                        }) : event.description}
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </>
                 )}
             </div>
         </div>

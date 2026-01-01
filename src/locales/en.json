@@ -243,6 +243,8 @@
     },
     "newspaper": {
         "title": "THE CITY GAZETTE",
+        "locked": "Newspaper Locked",
+        "unlocksAtLevel5": "Access to news unlocks at Level 5.",
         "recentHeadlines": "Recent Headlines",
         "noNews": "No recent news. The city awaits...",
         "effect": "Effect:",
@@ -268,6 +270,10 @@
             "chaos": "CHAOS"
         },
         "events": {
+            "NEWSPAPER_UNLOCKED": {
+                "title": "City Gazette Now Available!",
+                "description": "You now have access to city news, risk alerts, and public sentiment reports."
+            },
             "CRIME_WAVE": {
                 "title": "Crime Rates Surge in Downtown",
                 "description": "Analysts report a troubling spike in muggings and break-ins. Citizens are advised to stay indoors after dark."

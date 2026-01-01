@@ -98,6 +98,17 @@ function App() {
                 <div className="ui-overlay">
                     <div className="top-bar">
                         <StatsDisplay />
+
+                        {/* Level Progress Bar */}
+                        <div className="xp-bar-container" title="Level Progress">
+                            <div
+                                className="xp-bar-fill"
+                                style={{ width: `${gameState.getLevelProgress()}%` }}
+                            ></div>
+                            <span className="xp-text">
+                                {gameState.state.level >= 5 ? 'MAX' : `${Math.floor(gameState.getLevelProgress())}%`}
+                            </span>
+                        </div>
                     </div>
 
                     <div className="main-content">
