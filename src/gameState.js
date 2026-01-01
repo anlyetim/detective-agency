@@ -428,8 +428,8 @@ class GameState {
             this.addExperience(caseObj.experienceReward);
 
             // Track case completion by difficulty
-            if (caseObj.difficulty === 'EASY') this.state.completedCommonCases++;
-            if (caseObj.difficulty === 'HARD') this.state.completedVeteranCases++;
+            if (caseObj.difficulty === 'COMMON') this.state.completedCommonCases++;
+            if (caseObj.difficulty === 'VETERAN') this.state.completedVeteranCases++;
 
             this.removeCase(caseId);
             this.state.completedCases++;

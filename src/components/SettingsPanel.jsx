@@ -29,7 +29,11 @@ export default function SettingsPanel({ onStateChange }) {
         // Use a safer confirmation method or double check
         if (window.confirm(t('settings.resetConfirm'))) {
             localStorage.removeItem('detectiveAgencyState');
-            localStorage.clear(); // Clear everything related to the domain to be safe
+            // Forcefully clear current state instance to prevent auto-save race condition
+            if (gameState) {
+                gameState.state = gameState.getDefaultState();
+                gameState.saveState(); // Overwrite with clean state
+            }
             location.reload();
         }
     };

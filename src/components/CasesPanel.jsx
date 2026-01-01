@@ -174,7 +174,7 @@ export default function CasesPanel({ onStateChange }) {
                             <PoliceTapeOverlay isVisible={assignedInjured} t={t} />
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', opacity: assignedInjured ? 0.5 : 1 }}>
                                 <img
-                                    src={`/assets/pics/${caseObj.sprite}.png`}
+                                    src={`/pics/${caseObj.sprite}.png`}
                                     alt={caseObj.title}
                                     style={{
                                         width: '64px',

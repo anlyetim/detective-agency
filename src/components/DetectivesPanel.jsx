@@ -47,7 +47,7 @@ export default function DetectivesPanel({ onStateChange }) {
             >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                     <img
-                        src={`/assets/pics/${detective.sprite}.png`}
+                        src={`/pics/${detective.sprite}.png`}
                         alt={detective.name}
                         style={{
                             width: '64px',

@@ -93,7 +93,7 @@ export default function CaseDetailModal({ caseObj, onClose, onProgressUpdate }) 
             >
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                     <img
-                        src={`/assets/pics/${caseObj.sprite}.png`}
+                        src={`/pics/${caseObj.sprite}.png`}
                         alt={caseObj.title}
                         style={{
                             maxWidth: '200px',

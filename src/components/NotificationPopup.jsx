@@ -39,7 +39,7 @@ export default function NotificationPopup({ newNews }) {
             gap: '12px',
             pointerEvents: 'none' // Don't block clicks
         }}>
-            <img src="/assets/pics/icon_news.png" alt="News" style={{ width: '40px', height: '40px' }} />
+            <img src="/pics/iconnews.png" alt="News" style={{ width: '40px', height: '40px' }} />
             <div>
                 <div style={{ color: '#dc143c', fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase' }}>
                     {t('newspaper.title')}
