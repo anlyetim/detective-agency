@@ -177,8 +177,8 @@ export default function CasesPanel({ onStateChange }) {
                                     src={`/pics/${caseObj.sprite}.png`}
                                     alt={caseObj.title}
                                     style={{
-                                        width: '64px',
-                                        height: '64px',
+                                        width: '96px',
+                                        height: '96px',
                                         filter: isEpic ?
                                             `drop-shadow(0 0 12px ${rarityColor}80)` :
                                             `drop-shadow(0 0 6px ${rarityColor}50)`,

@@ -1047,7 +1047,6 @@ class GameState {
         this.state.items.push(item);
 
         // Add news event for item drop
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
         const def = ITEM_DEFINITIONS[item.definitionId];
 
         this.addNewsEvent({
@@ -1064,7 +1063,6 @@ class GameState {
     }
 
     generateRandomItem() {
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
         const keys = Object.keys(ITEM_DEFINITIONS);
         if (keys.length === 0) return null;
 
@@ -1116,4 +1114,9 @@ class GameState {
 // Create singleton instance
 const gameState = new GameState();
 
+/* eslint-disable no-undef */
+import { ITEM_DEFINITIONS } from './systems/itemSystem.js';
+import React from 'react';
+
 export default gameState;
+
