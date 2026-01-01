@@ -1,0 +1,99 @@
+{
+    "items": {
+        "title": "Eşyalar ve Ekipman",
+        "selectDetective": "Dedektif Seç",
+        "equipmentSlots": "Ekipman Slotları",
+        "slot": "Slot",
+        "empty": "Boş",
+        "unequip": "Çıkar",
+        "inventory": "Envanter",
+        "noItems": "Henüz eşya yok. Vaka çözerek eşya kazan!",
+        "equipped": "Kuşanılmış",
+        "equipToSlot": "Slota Kuşan:",
+        "noDetectives": "Henüz dedektif kilidi açılmadı!",
+        "level": "Seviye",
+        "upgrade": "Yükselt",
+        "maxLevel": "MAKS",
+        "upgradeCost": "Yükseltme Maliyeti: ${cost}",
+        "aid_bandage_epic": {
+            "name": "Sargı Bezi",
+            "desc": "İyileşme hızı +{value}%"
+        },
+        "band_aid": {
+            "name": "Kanlı Yara Bandı",
+            "desc": "İyileşme hızı +{value}%"
+        },
+        "car_key_epic": {
+            "name": "Araba Anahtarı",
+            "desc": "Vakaya ulaşma hızı +{value}%"
+        },
+        "shoes": {
+            "name": "Eski Ayakkabı",
+            "desc": "Hız +{value}"
+        },
+        "chemistry": {
+            "name": "Kimyasal Malzeme",
+            "desc": "Kanıt +{value}"
+        },
+        "laptop": {
+            "name": "Bozuk Laptop",
+            "desc": "Kanıt +{value}"
+        },
+        "magnifying_glass": {
+            "name": "Kırık Büyüteç",
+            "desc": "Kanıt çözme hızı +{value}%"
+        },
+        "magnifying_glass_lv2": {
+            "name": "Büyüteç",
+            "desc": "Kanıt çözme hızı +{value}%"
+        },
+        "glasses": {
+            "name": "Kırık Gözlük",
+            "desc": "Zeka +{value}"
+        },
+        "pencil": {
+            "name": "Kırık Kalem",
+            "desc": "Zeka +{value}"
+        },
+        "notebook": {
+            "name": "Yırtık Defter",
+            "desc": "Düşünme süreci hızı +{value}%"
+        },
+        "notebook_lv2": {
+            "name": "Defter",
+            "desc": "Düşünme süreci hızı +{value}%"
+        },
+        "gun": {
+            "name": "Tekleyen Tabanca",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "revolver_lv2": {
+            "name": "Altıpatlar",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "knife": {
+            "name": "Kanlı Bıçak",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "katana_epic": {
+            "name": "Katana",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "rope": {
+            "name": "Halat",
+            "desc": "Saldırıdan sıyrılma ihtimali +{value}%"
+        },
+        "rope_lv2": {
+            "name": "Urgan",
+            "desc": "Saldırıdan sıyrılma ihtimali +{value}%"
+        },
+        "debit_card_epic": {
+            "name": "Banka Kartı",
+            "desc": "Gelir +{value}%"
+        },
+        "phone": {
+            "name": "Bozuk Telefon",
+            "desc": "Risk +{value}"
+        }
+    }
+}

@@ -1,0 +1,1003 @@
+{
+    "common": {
+        "level": "SEV",
+        "currency": "Para",
+        "experience": "TP",
+        "unknown": "Bilinmiyor",
+        "seconds": "sn",
+        "percent": "%{value}",
+        "close": "Kapat"
+    },
+    "nav": {
+        "detectives": "Dedektifler",
+        "cases": "Vakalar",
+        "items": "Eşyalar",
+        "newspaper": "Gazete",
+        "settings": "Ayarlar"
+    },
+    "detectives": {
+        "title": "Dedektif Ajansı",
+        "activeDetectives": "Aktif Dedektifler",
+        "lockedDetectives": "Kilitli Dedektifler",
+        "available": "Müsait",
+        "working": "Vaka üzerinde çalışıyor",
+        "recovering": "İyileşiyor...",
+        "injured": "Yaralı. Atanamaz.",
+        "showUpgrades": "Yükseltmeleri Göster",
+        "hideUpgrades": "Yükseltmeleri Gizle",
+        "upgradeStats": "İstatistikleri Yükselt (Sadece Temel)",
+        "maxLevel": "MAKSİMUM",
+        "stats": {
+            "speed": "Hız",
+            "evidence": "Kanıt",
+            "intelligence": "Zeka",
+            "risk": "Risk"
+        },
+        "ranks": {
+            "master": "Üstat",
+            "expert": "Uzman",
+            "veteran": "Kıdemli",
+            "skilled": "Yetenekli",
+            "rookie": "Çaylak"
+        },
+        "selectDetective": "Dedektif Seç",
+        "names": {
+            "rookie_blake": "Çaylak Blake",
+            "detective_noir": "Dedektif Noir",
+            "agent_shadow": "Ajan Gölge",
+            "inspector_steel": "Müfettiş Çelik",
+            "detective_crimson": "Dedektif Kızıl",
+            "master_phantom": "Üstat Hayalet",
+            "legendary_oracle": "Efsanevi Kâhin"
+        },
+        "tasks": {
+            "solve_3_common": "3 Sıradan vaka çöz",
+            "earn_500_coins": "500 para kazan",
+            "solve_10_total": "Toplam 10 vaka çöz",
+            "equip_4_items": "Herhangi bir dedektife 4 eşya kuşat",
+            "complete_2_veteran": "2 Kıdemli vaka tamamla",
+            "reach_level_10": "Ajans Seviyesi 10'a ulaş"
+        }
+    },
+    "cases": {
+        "title": "Aktif Vakalar",
+        "autoAssignMode": "Otomatik Atama Modu",
+        "on": "AÇIK",
+        "off": "KAPALI",
+        "noCases": "Aktif vaka yok. Yeni vakalar yakında görünecek...",
+        "investigating": "soruşturuyor...",
+        "viewDetails": "(Detayları görmek için tıklayın)",
+        "assignDetective": "Dedektif Ata...",
+        "noQualifiedDetectives": "Uygun dedektif yok",
+        "progress": "Soruşturma İlerlemesi"
+    },
+    "items": {
+        "title": "Eşyalar ve Ekipman",
+        "selectDetective": "Dedektif Seç",
+        "slot": "Slot",
+        "empty": "Boş",
+        "inventory": "Envanter",
+        "noItems": "Henüz eşya yok. Vaka çözerek eşya kazan!",
+        "equipToSlot": "Slota Kuşan:",
+        "noDetectives": "Henüz dedektif kilidi açılmadı!",
+        "level": "Seviye",
+        "upgrade": "Yükselt",
+        "maxLevel": "MAKS",
+        "equip": "Kuşan",
+        "unequip": "Çıkar",
+        "equipped": "Kuşanıldı",
+        "equippedTo": "{name} kullanıyor",
+        "equipmentSlots": "Ekipman Slotları",
+        "noSlots": "Boş slot yok! Önce bir eşyayı çıkar.",
+        "upgradeCost": "Yükselt: ${cost}",
+        "aid_bandage_epic": {
+            "name": "Sargı Bezi",
+            "desc": "İyileşme hızı +{value}%"
+        },
+        "band_aid": {
+            "name": "Kanlı Yara Bandı",
+            "desc": "İyileşme hızı +{value}%"
+        },
+        "car_key_epic": {
+            "name": "Araba Anahtarı",
+            "desc": "Vakaya ulaşma hızı +{value}%"
+        },
+        "shoes": {
+            "name": "Eski Ayakkabı",
+            "desc": "Hız +{value}"
+        },
+        "chemistry": {
+            "name": "Kimyasal Malzeme",
+            "desc": "Kanıt +{value}"
+        },
+        "laptop": {
+            "name": "Bozuk Laptop",
+            "desc": "Kanıt +{value}"
+        },
+        "magnifying_glass": {
+            "name": "Kırık Büyüteç",
+            "desc": "Kanıt çözme hızı +{value}%"
+        },
+        "magnifying_glass_lv2": {
+            "name": "Büyüteç",
+            "desc": "Kanıt çözme hızı +{value}%"
+        },
+        "glasses": {
+            "name": "Kırık Gözlük",
+            "desc": "Zeka +{value}"
+        },
+        "pencil": {
+            "name": "Kırık Kalem",
+            "desc": "Zeka +{value}"
+        },
+        "notebook": {
+            "name": "Yırtık Defter",
+            "desc": "Düşünme süreci hızı +{value}%"
+        },
+        "notebook_lv2": {
+            "name": "Defter",
+            "desc": "Düşünme süreci hızı +{value}%"
+        },
+        "gun": {
+            "name": "Tekleyen Tabanca",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "revolver_lv2": {
+            "name": "Altıpatlar",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "knife": {
+            "name": "Kanlı Bıçak",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "katana_epic": {
+            "name": "Katana",
+            "desc": "Yaralanma riski -{value}%"
+        },
+        "rope": {
+            "name": "Halat",
+            "desc": "Saldırıdan sıyrılma ihtimali +{value}%"
+        },
+        "rope_lv2": {
+            "name": "Urgan",
+            "desc": "Saldırıdan sıyrılma ihtimali +{value}%"
+        },
+        "debit_card_epic": {
+            "name": "Banka Kartı",
+            "desc": "Gelir +{value}%"
+        },
+        "phone": {
+            "name": "Bozuk Telefon",
+            "desc": "Risk +{value}"
+        }
+    },
+    "settings": {
+        "title": "Ayarlar",
+        "audio": "Ses",
+        "backgroundMusic": "Arka Plan Müziği",
+        "volume": "Ses Seviyesi",
+        "language": "Dil",
+        "gameInfo": "Oyun Bilgileri",
+        "game": "Oyun",
+        "version": "Versiyon",
+        "type": "Tür",
+        "description": "Dedektif ajansınızı yönetin, dedektifleri vakalara atayın, becerilerini geliştirin ve çevrimdışıyken bile para kazanın!",
+        "dangerZone": "Tehlike Bölgesi",
+        "resetProgress": "Tüm İlerlemeyi Sıfırla",
+        "resetConfirm": "Tüm ilerlemeyi sıfırlamak istediğinizden emin misiniz? Bu geri alınamaz!",
+        "footer": "React + Phaser 3 ile yapıldı"
+    },
+    "idle": {
+        "welcomeBack": "Tekrar Hoş Geldiniz!",
+        "awayFor": "Uzakta kaldığınız süre",
+        "currencyEarned": "Kazanılan Para:",
+        "experienceGained": "Kazanılan Tecrübe:",
+        "casesCompleted": "Tamamlanan Vakalar:",
+        "collectRewards": "Ödülleri Topla"
+    },
+    "investigation": {
+        "stages": {
+            "0": "Dedektif olay yerine gidiyor...",
+            "20": "İpuçları ve kanıtlar aranıyor...",
+            "40": "Kritik kanıtlar toplanıyor...",
+            "60": "Parmak izleri ve izler analiz ediliyor...",
+            "80": "Gerçekle yüzleşiliyor...",
+            "100": "Vaka başarıyla çözüldü!"
+        }
+    },
+    "rarities": {
+        "COMMON": "Sıradan",
+        "on": "AÇIK",
+        "off": "KAPALI",
+        "unlock": "KİLİDİ AÇ",
+        "autoAssignMode": "OTOMATİK ATAMA",
+        "investigationPaused": "Vaka Donduruldu.",
+        "RARE": "Nadir",
+        "VETERAN": "Kıdemli",
+        "EPIC": "Epik"
+    },
+    "upgrades": {
+        "title": "Ajans Yükseltmeleri",
+        "level": "Seviye",
+        "max": "MAKS",
+        "upgrade": "Yükselt",
+        "maxLevel": "Maks Seviye",
+        "availableXP": "Mevcut TP",
+        "items": {
+            "auto_assistant": {
+                "name": "Saha Asistanları",
+                "description": "Zamanla küçük vakaları otomatik çözer."
+            },
+            "risk_mgmt": {
+                "name": "Risk Yönetimi",
+                "description": "Dedektif yaralanma riskini azaltır."
+            },
+            "efficiency": {
+                "name": "Lojistik Ağı",
+                "description": "Vaka çıkma sıklığını artırır."
+            },
+            "recovery": {
+                "name": "Medikal Destek",
+                "description": "Yaralanma iyileşme süresini hızlandırır."
+            }
+        }
+    },
+    "newspaper": {
+        "title": "ŞEHİR GAZETESİ",
+        "injuredDetectives": "Yaralı Dedektifler",
+        "healsIn": "İyileşme:",
+        "healButton": "İyileştir ($200)",
+        "recentHeadlines": "Son Manşetler",
+        "noNews": "Yeni haber yok. Şehir sessiz...",
+        "effect": "Etki:",
+        "effects": {
+            "detectiveAvailable": "Dedektif Müsait"
+        },
+        "crime": {
+            "LOW": "Şehir güvenli ve huzurlu",
+            "MEDIUM": "Suç aktivitesi orta seviyede",
+            "HIGH": "Suç dalgası şehri sarıyor",
+            "CHAOS": "Şehir tam bir kaos içinde!"
+        },
+        "time": {
+            "justNow": "Şimdi",
+            "minAgo": "dk önce",
+            "minsAgo": "dk önce",
+            "hourAgo": "saat önce",
+            "hoursAgo": "saat önce"
+        },
+        "crimeRate": {
+            "safe": "GÜVENLİ",
+            "high": "YÜKSEK RİSK",
+            "chaos": "KAOS"
+        },
+        "events": {
+            "CRIME_WAVE": {
+                "title": "Şehir Merkezinde Suç Oranı Arttı",
+                "description": "Analistler soygun ve hırsızlık olaylarında endişe verici bir artış bildiriyor. Vatandaşların hava karardıktan sonra içeride kalmaları tavsiye ediliyor."
+            },
+            "PEACEFUL": {
+                "title": "Rekor Düşük Suç Raporları",
+                "description": "Polis şefi son zamanlardaki sakinliği övüyor. Parklar güvenli sokakların tadını çıkaran ailelerle dolu."
+            },
+            "INJURY_RISK": {
+                "title": "Sanayi Bölgesinde İsyan Çıktı",
+                "description": "Protestolar şiddete dönüştü. Acil servisler yetersiz kalıyor ve bölgedeki operasyonlar tehlikeli."
+            },
+            "BONUS": {
+                "title": "Belediye Hibeyi Duyurdu",
+                "description": "Belediye başkanı yeni bir kamu güvenliği girişimini açıkladı. Yerel ajanslara ek kaynaklar tahsis edildi."
+            },
+            "DETECTIVE_INJURED": {
+                "title": "Dedektif Yaralandı!",
+                "description": "{name} görev başında yaralandı ve hastanede iyileşiyor."
+            },
+            "DETECTIVE_RECOVERED": {
+                "title": "Dedektif İyileşti",
+                "description": "{name} yaralarından kurtuldu ve göreve hazır."
+            },
+            "FESTIVAL": {
+                "title": "Şehir Festivali",
+                "description": "Sokaklar müzik ve yemekle canlanıyor. Moral yüksek!"
+            },
+            "NEW_SCHOOL": {
+                "title": "Yeni Okul Açıldı",
+                "description": "Eğitime yapılan yatırım geleceği parlak kılıyor."
+            },
+            "PARK_OPENING": {
+                "title": "Merkez Park Açılışı",
+                "description": "Vatandaşlar yeni yeşil alanın tadını çıkarıyor."
+            },
+            "CHARITY_GALA": {
+                "title": "Yardım Galası",
+                "description": "Şehrin ileri gelenleri yetimhaneler için bağış topladı."
+            },
+            "TECH_BOOM": {
+                "title": "Teknoloji Patlaması",
+                "description": "Yeni bir startup merkezi şehre yatırım çekiyor."
+            },
+            "RIOTS": {
+                "title": "Sokak İsyanları",
+                "description": "Protestolar kontrolden çıktı, dükkanlar yağmalanıyor."
+            },
+            "BLACKOUT": {
+                "title": "Büyük Elektrik Kesintisi",
+                "description": "Şehir karanlığa gömüldü, suç oranı artıyor."
+            },
+            "GANG_WAR": {
+                "title": "Çete Savaşı",
+                "description": "İki büyük çete bölge hakimiyeti için çatışıyor."
+            },
+            "CORRUPTION": {
+                "title": "Yolsuzluk Skandalı",
+                "description": "Üst düzey yetkililerin rüşvet aldığı ortaya çıktı."
+            },
+            "PRISON_BREAK": {
+                "title": "Hapishane Firarı",
+                "description": "Tehlikeli suçlular serbest kaldı, dikkatli olun."
+            },
+            "CAT_RESCUED": {
+                "title": "Kedi Kurtarıldı",
+                "description": "İtfaiye ekipleri ağaçta mahsur kalan kediyi kurtardı."
+            },
+            "STREET_MARKET": {
+                "title": "Pazar Yeri Kuruldu",
+                "description": "Yerel üreticiler taze ürünlerini sergiliyor."
+            },
+            "TRAFFIC_JAM": {
+                "title": "Trafik Kilitlendi",
+                "description": "Ana arterlerdeki kaza sonucu trafik durma noktasında."
+            },
+            "SUBWAY_DELAY": {
+                "title": "Metro Arızası",
+                "description": "Teknik bir arıza nedeniyle seferler aksıyor."
+            },
+            "LOCAL_HERO": {
+                "title": "Yerel Kahraman",
+                "description": "Bir vatandaş yanan binadan komşusunu kurtardı."
+            },
+            "RAIN_STORM": {
+                "title": "Şiddetli Yağmur",
+                "description": "Sağanak yağış su baskınlarına neden olabilir."
+            },
+            "MUSEUM_EXHIBIT": {
+                "title": "Yeni Müze Sergisi",
+                "description": "Tarihi eserler sanatseverlerin beğenisine sunuldu."
+            },
+            "BRIDGE_REPAIR": {
+                "title": "Köprü Bakımı",
+                "description": "Eski köprü onarım çalışmaları nedeniyle kapatıldı."
+            },
+            "ELECTION_CYCLE": {
+                "title": "Seçim Dönemi",
+                "description": "Adaylar son mitinglerini düzenliyor."
+            },
+            "SPORT_VICTORY": {
+                "title": "Şampiyonluk!",
+                "description": "Yerel takım büyük finali kazandı, şehir kutlamada."
+            }
+        }
+    },
+    "injury": {
+        "notification": {
+            "title": "Dedektif Yaralandı!",
+            "subtitle": "{name} görev başında yaralandı"
+        },
+        "types": {
+            "BROKEN_LEG": "Bacak Kırığı",
+            "HEART_ATTACK": "Kalp Krizi",
+            "SURGERY": "Ameliyat Gerekiyor",
+            "STABBED": "Bıçaklandı",
+            "CONCUSSION": "Beyin Sarsıntısı",
+            "GUNSHOT": "Kurşun Yarası"
+        },
+        "descriptions": {
+            "BROKEN_LEG": "Zamanla doğal olarak iyileşecek",
+            "HEART_ATTACK": "İyileşmek için tıbbi uzmanlık gerekiyor",
+            "SURGERY": "Acil cerrahi müdahale gerekli",
+            "STABBED": "Bıçak yaralarından iyileşiyor",
+            "CONCUSSION": "Dinlenme ve zamanı iyileşmesi gerekiyor",
+            "GUNSHOT": "Kritik durum, acil müdahale gerekli"
+        },
+        "healMethods": {
+            "time": "İyileşme süresi: {time}",
+            "xp": "TP ile İyileştir: {cost}",
+            "currency": "Para ile İyileştir: ${cost}"
+        },
+        "healButton": "Hemen İyileştir",
+        "cannotAfford": "Yeterli {resource} yok"
+    },
+    "cases_data": {
+        "Case1": {
+            "title": "Kayıp Varis",
+            "texts": {
+                "0": [
+                    "Dedektif, tepedeki gotik malikanenin yolunu tutuyor...",
+                    "Gölgeler, yıpranmış taş cephede dans ediyor...",
+                    "Yaklaştıkça havaya bir korku duygusu yayılıyor..."
+                ],
+                "1": [
+                    "İçeride, toz kaplı koridorlar unutulmuş anılarla yankılanıyor...",
+                    "Malikane, sırlarının ağırlığı altında inliyor...",
+                    "Her oda, zenginlik ve trajedinin bir hikayesini anlatıyor..."
+                ],
+                "2": [
+                    "Eski belgeler, maun masanın üzerinde dağınık halde...",
+                    "Solmuş fotoğraflar, zamanda donmuş yüzleri ortaya çıkarıyor...",
+                    "Muhasebe defteri, onlarca yıl öncesinden gizemli işlemleri gösteriyor..."
+                ],
+                "3": [
+                    "Gerçek, bir hayalet gibi karanlıktan beliriyor...",
+                    "Yapbozu parçaları, ürpertici bir netlikle hizalanıyor...",
+                    "Kayıp varisin kaderi nihayet aydınlığa kavuşuyor..."
+                ]
+            }
+        },
+        "Case2": {
+            "title": "Ara Sokak Cinayeti",
+            "texts": {
+                "0": [
+                    "Dedektif suç mahalline ulaşıyor, yağmur kanıtları yıkıyor...",
+                    "Neon ışıklar üstte yanıp sönüyor, ıslak kaldırıma kızıl gölgeler düşürüyor...",
+                    "Dar geçitte bakır ve çürüme kokusu kalıcı..."
+                ],
+                "1": [
+                    "Kızıl lekeler, tuğla duvarında şiddetli bir hikaye anlatıyor...",
+                    "Her kan damlası, karanlıkta ürkütücü bir iz oluşturuyor...",
+                    "Kurbanın son anları, her yüzeye kazınmış..."
+                ],
+                "2": [
+                    "Tanıklar gölgelerden çıkıyor, isteksiz ve korkmuş halde...",
+                    "Parçalı ifadeler, şiddetli bir karşılaşmanın parçalarını birleştiriyor...",
+                    "Dehşete düşmüş yüzler, sözlerinden daha fazlasını açığa çıkarıyor..."
+                ],
+                "3": [
+                    "Katilin kimliği, dikkatli çıkarımlarla netleşiyor...",
+                    "Adalet, kaçınılmaz bir hassasiyetle yaklaşıyor...",
+                    "Bir yırtıcı daha ışığa sürükleniyor..."
+                ]
+            }
+        },
+        "Case3": {
+            "title": "Çalınan Defter",
+            "texts": {
+                "0": [
+                    "Dedektif, gecenin karanlığında kurumsal arşive sızıyor...",
+                    "Floresan ışıklar, steril koridorlarda uğursuzca vızıldıyor...",
+                    "Güvenlik kameraları tek tek devre dışı bırakılıyor..."
+                ],
+                "1": [
+                    "Parmak izleri, cilalı yüzeylerde gizli dokunuşları açığa çıkarıyor...",
+                    "Suç mahalli, eğitimli göze çok şey anlatıyor...",
+                    "İzinsiz girişin kanıtları, her yer değiştirmiş klasörde gizleniyor..."
+                ],
+                "2": [
+                    "Gizli bölmeler, yasak belgeleri ortaya çıkarıyor...",
+                    "Şifreli notlar, açgözlülük ve ihanetin komplosunu çözüyor...",
+                    "Belge izi, gücün en üst düzeyine uzanıyor..."
+                ],
+                "3": [
+                    "Dava, suçlayıcı kanıtlar elde edilerek kapanıyor...",
+                    "Kurumsal yolsuzluk açığa çıkıyor, adalet soğuk servis ediliyor...",
+                    "Bir beyaz yakalı suç daha gün ışığına çıkarılıyor..."
+                ]
+            }
+        },
+        "Case4": {
+            "title": "Kaybolan Tanık",
+            "texts": {
+                "0": [
+                    "Tanığın şehirdeki son bilinen hareketleri takip ediliyor...",
+                    "Güvenlik kamerası görüntüleri, kent alanına karışan bir figürü gösteriyor...",
+                    "Gece sokakların üzerine çökerken iz soğuyor..."
+                ],
+                "1": [
+                    "Gözetleme ekipmanı, kilit kavşaklara yerleştiriliyor...",
+                    "Dijital gözler, görünebilecekleri her köşeyi izliyor...",
+                    "Ağ, olası saklanma yerlerinin etrafında sıkılaşıyor..."
+                ],
+                "2": [
+                    "Beklenmedik bir kaynaktan kritik kanıt ortaya çıkıyor...",
+                    "Bir atılım, ileriye giden yolu aydınlatıyor...",
+                    "Parçalar nihayet konumlarını ortaya çıkaracak şekilde hizalanıyor..."
+                ],
+                "3": [
+                    "Tanık, sarsılmış ama sağ olarak kurtarılıyor...",
+                    "Koruma detayı kuruldu, tehdit etkisiz hale getirildi...",
+                    "Gölgelerden bir can daha kurtarıldı..."
+                ]
+            }
+        },
+        "Case5": {
+            "title": "Şantaj Düzeni",
+            "texts": {
+                "0": [
+                    "Anonim mektuplar, yalanlar ve manipülasyonlardan örülü bir ağa yol açıyor...",
+                    "Birinin en karanlık sırları silahlaştırılıyor...",
+                    "Dedektif, zorlama ve korku dünyasına dalıyor..."
+                ],
+                "1": [
+                    "Kağıt izleri, şehir çapında sistematik gasp ortaya çıkarıyor...",
+                    "Her kurban, konuşmaktan çok korkuyor, sessizlik içinde hapsolmuş...",
+                    "Şantajcının kalıbı rahatsız edici bir netlik kazanıyor..."
+                ],
+                "2": [
+                    "Dijital adli bilimler, bu kabusun mimarını açığa çıkarıyor...",
+                    "Para, hayalet hesaplar ve ölü noktalardan akıyor...",
+                    "Komplo, hayal edilenden daha öteye uzanıyor..."
+                ],
+                "3": [
+                    "Şantajcının imparatorluğu, soruşturma altında çöküyor...",
+                    "Kurbanlar nihayet ıstıraplarından kurtarılıyor...",
+                    "Adalet, manipülasyon ve korkuya karşı galip geliyor..."
+                ]
+            }
+        },
+        "Case6": {
+            "title": "Kurumsal Sabotaj",
+            "texts": {
+                "0": [
+                    "Endüstriyel casusluk, kurumsal kalbin derinliklerine uzanıyor...",
+                    "Milyonlarca kayıp, içeriden bir operatöre işaret ediyor...",
+                    "Dedektif, kurumsal politikaların labirentinde geziniyor..."
+                ],
+                "1": [
+                    "Güvenlik görüntüleri, anormallikler için kare kare inceleniyor...",
+                    "Erişim kayıtları, garip saatlerde yetkisiz girişleri ortaya çıkarıyor...",
+                    "Sabotajcı, eğitilmemiş gözler için görünmez izler bırakıyor..."
+                ],
+                "2": [
+                    "Rakip çıkarlar ve gömülü kinler yüzeye çıkıyor...",
+                    "Güdü, iş belgelerinden kristalleşiyor...",
+                    "Açgözlülük ve hırs, ihaneti yönlendiriyor..."
+                ],
+                "3": [
+                    "Sabotajcı tespit ediliyor ve yakalanıyor...",
+                    "Kurumsal sırlar bir kez daha güvence altına alınıyor...",
+                    "Güven, kararlı eylemle yeniden inşa ediliyor..."
+                ]
+            }
+        },
+        "Case7": {
+            "title": "Zehirli Kadeh",
+            "texts": {
+                "0": [
+                    "Yüksek sosyete galası, ölümcül bir entrika sahnesine dönüşüyor...",
+                    "Şampanya ve ipeklerin arasında, cinayet sessizce gerçekleşiyor...",
+                    "Dedektif, toksin yayılırken zamanla yarışıyor..."
+                ],
+                "1": [
+                    "Kimyasal analiz, nadir ve egzotik bir zehir ortaya çıkarıyor...",
+                    "Böyle ölümcül bir maddeyi sadece bir avuç kişi temin edebilir...",
+                    "Her test sonucuyla şüpheliler listesi daralmıyor..."
+                ],
+                "2": [
+                    "Kibar gülümsemelerin altında gizlenen güdüler gün ışığına çıkıyor...",
+                    "Kıskançlık ve intikam, yüzeyin altında kaynıyor...",
+                    "Katil, tek bir ölümcül hata yapmış..."
+                ],
+                "3": [
+                    "Adalet, ironik bir hassasiyetle servis ediliyor...",
+                    "Zehirleyen, kendi tuzağına düşüyor...",
+                    "Yüksek sosyete, kimsenin yasaların üstünde olmadığını öğreniyor..."
+                ]
+            }
+        },
+        "Case8": {
+            "title": "Dijital Hayalet",
+            "texts": {
+                "0": [
+                    "Siber suçlar, ağ boyunca sanal parmak izleri bırakıyor...",
+                    "Bir hacker hayaleti, dijital gölgelerden çalışıyor...",
+                    "Dedektif, kod ve şifreleme aleminin içine giriyor..."
+                ],
+                "1": [
+                    "IP adresleri, uluslararası sıçramalarla takip ediliyor...",
+                    "Her koruma katmanı yavaş yavaş soyuluyor...",
+                    "Hayaletin inine her atılımla daha da yaklaşılıyor..."
+                ],
+                "2": [
+                    "Görünüşte rastgele saldırılardan örüntüler ortaya çıkıyor...",
+                    "Hacker'ın imzası tanınabilir hale geliyor...",
+                    "Dijital adli bilimler, gerçek konumlarını ortaya çıkarıyor..."
+                ],
+                "3": [
+                    "Hayalet açığa çıkarılıyor ve saltanatı sona eriyor...",
+                    "Sistemler güvence altına alınıyor, veriler kurtarılıyor...",
+                    "Sanal, failsabit için çok gerçek oluyor..."
+                ]
+            }
+        },
+        "Case9": {
+            "title": "Kayıp Kedi",
+            "texts": {
+                "0": [
+                    "Gözyaşları içindeki bir sahip, kayıp ödüllü İran kedisini bildiriyor...",
+                    "Mahalleye posterler yapıştırılıyor...",
+                    "Dedektif, yerel barınakları ve ara sokakları kontrol ediyor..."
+                ],
+                "1": [
+                    "Balık pazarının yakınında beyaz bir tüy tutamı bulunuyor...",
+                    "Tanıklar, beyaz bir tüy bulanıklığının fare kovaladığını bildiriyor...",
+                    "İz, eski fırına uzanıyor..."
+                ],
+                "2": [
+                    "Un çuvallarının arkasından miyavlamalar yankılanıyor...",
+                    "Dedektif, bir barış teklifi olarak bir ödül sunuyor...",
+                    "Güven, sabır ve nazik sözlerle kazanılıyor..."
+                ],
+                "3": [
+                    "Kedi yavrusu, müteşekkir sahibiyle yeniden bir araya geliyor...",
+                    "Bir ödül veriliyor, yanında ücretsiz bir pasta...",
+                    "Tüm vakalar suç içermez, ama hepsi önemlidir..."
+                ]
+            }
+        },
+        "Case10": {
+            "title": "Fırın Hırsızlığı",
+            "texts": {
+                "0": [
+                    "Sabahın kruvasan partisi kaybolmuş...",
+                    "Un ayak izleri, arka kapıdan uzaklaşıyor...",
+                    "Fırıncı, kaybedilen gelir nedeniyle üzgün..."
+                ],
+                "1": [
+                    "Dedektif, tozlu izi sokaktan aşağı takip ediyor...",
+                    "Kırıntılar, hırsızın yerini ele veriyor...",
+                    "Bir grup aç yetim, bir arada kıvrılmış halde bulunuyor..."
+                ],
+                "2": [
+                    "Hırsız, çaresiz bir baba olarak ortaya çıkıyor...",
+                    "Merhamet, kanunun mektubuna karşı tartılıyor...",
+                    "Dedektif, bir çözüm müzakere ediyor..."
+                ],
+                "3": [
+                    "Fırıncı, yemek karşılığı çalışma düzenini kabul ediyor...",
+                    "Adalet servis ediliyor, ama bir merhamet tarafıyla...",
+                    "Topluluk bunun için daha güçlü..."
+                ]
+            }
+        },
+        "CaseCommon1": {
+            "title": "Perili Çatı Katı",
+            "texts": {
+                "0": [
+                    "Yaşlı bir sakini geceleri garip sesler rahatsız ediyor...",
+                    "Batıl inançlı komşular arasında hayalet hikayeleri dolaşıyor...",
+                    "Dedektif, şüphecilik ve bir el feneriyle araştırıyor..."
+                ],
+                "1": [
+                    "Yukarıdaki gıcırdayan tahtalar, fiziksel bir izinsiz giriş öneriyor...",
+                    "Toz desenleri, yakın zamandaki rahatsızlıkları ortaya çıkarıyor...",
+                    "Kırık bir pencereden gelen hava akımı ürkütücü bir şekilde ıslık çalıyor..."
+                ],
+                "2": [
+                    "\"Hayalet\" baca yakınında köşeye sıkıştırılıyor...",
+                    "Rakunlar, yuvalama yerlerinden tıslıyor...",
+                    "Doğaüstü açıklama çöküyor..."
+                ],
+                "3": [
+                    "Hayvan kontrolü \"ruhları\" ele alıyor...",
+                    "Sakin, bir kez daha rahatça uyuyor...",
+                    "Bir başka kentsel efsane çürütüldü..."
+                ]
+            }
+        },
+        "CaseCommon2": {
+            "title": "Vandalizm Seri",
+            "texts": {
+                "0": [
+                    "Taze grafiti, belediye binasını bir gecede bozuyor...",
+                    "Sprey boya kutuları, alaycı bir imza olarak bırakılıyor...",
+                    "Belediye başkanı, acil sonuçlar talep ediyor..."
+                ],
+                "1": [
+                    "Gözetim görüntüleri, başlıklı bir figür gösteriyor...",
+                    "Bir çitteki boya parçaları, kaçış rotasını gösteriyor...",
+                    "Dedektif, olağan kaykay parklarında devriye geziyor..."
+                ],
+                "2": [
+                    "Bir şüpheli, lekeli parmaklarla yakalanıyor...",
+                    "\"Sanatçı\" bunun politik bir ifade olduğunu iddia ediyor...",
+                    "Toplum hizmeti, uygun bir ceza gibi görünüyor..."
+                ],
+                "3": [
+                    "Duvarlar temizleniyor, mesaj kalıyor...",
+                    "Gençlik enerjisi yasal duvar resimlerine yönlendiriliyor...",
+                    "Düzen, kamusal alana geri getiriliyor..."
+                ]
+            }
+        },
+        "CaseCommon3": {
+            "title": "Kayıp Yüzük",
+            "texts": {
+                "0": [
+                    "Çılgına dönmüş bir parti konuğu, zümrüt yüzüğünün beklenmedik bir şekilde kaybolduğunu fark ediyor...",
+                    "Müzik durduruluyor, konuklar yeri aramak için çağrılıyor...",
+                    "Sarhoş kalabalık arasında suçlamalar uçuşuyor..."
+                ],
+                "1": [
+                    "Dedektif, yemek hizmeti personelini ve konukları sorgululuyor...",
+                    "Bir eldivene gevşek takılmış bir şey ipucu veriyor...",
+                    "Olayların zaman çizelgesi yeniden oluşturuluyor..."
+                ],
+                "2": [
+                    "Yüzük çalınmamış, yanlış yerleştirilmiş...",
+                    "Bir likör kasesinin dibinden parıldıyor...",
+                    "Odaya rahatlama yayılıyor..."
+                ],
+                "3": [
+                    "Özürler değiş tokuş ediliyor, parti devam ediyor...",
+                    "Dedektif sessizce ayrılıyor, iş bitti...",
+                    "Dikkatsizlik, kötü niyet değil, suçluydu..."
+                ]
+            }
+        },
+        "CaseCommon4": {
+            "title": "Kütüphane Gizemi",
+            "texts": {
+                "0": [
+                    "Kitaplar mantıksız sıralarla yeniden düzenleniyor...",
+                    "Kütüphaneci, bir şakacının işte olduğundan şüpheleniyor...",
+                    "Dewey Ondalık Sistemi mutlak kaos içinde..."
+                ],
+                "1": [
+                    "Başlıklarda şifresi çözülmüş gizli mesajlar bulunuyor...",
+                    "Kaostan bir desen ortaya çıkıyor...",
+                    "Biri iletişim kurmaya çalışıyor..."
+                ],
+                "2": [
+                    "Utangaç bir öğrenci, bir aşka hayran kalmaya çalışırken bulunuyor...",
+                    "Kod, baloya beceriksiz bir davet ortaya çıkarıyor...",
+                    "Gizem, genç bir aşkın gizemi..."
+                ],
+                "3": [
+                    "Kitaplar yeniden raflara konuyor, randevu kabul ediliyor...",
+                    "Kütüphane, kutsal sessizliğine dönüyor...",
+                    "Soruşturma sayesinde bir romantizm filizleniyor..."
+                ]
+            }
+        },
+        "CaseRare1": {
+            "title": "Kaçakçılar Koyu",
+            "texts": {
+                "0": [
+                    "Terk edilmiş rıhtımlarda ışık raporları...",
+                    "\"Muzlar\" olarak işaretlenmiş sandıklar çok ağır...",
+                    "Dedektif, sisli iskeleden gözetim yapıyor..."
+                ],
+                "1": [
+                    "Karanlığın örtüsü altında tekneler gelıyor...",
+                    "Siluetler, paketler ve nakit alışverişi yapıyor...",
+                    "Operasyon, basit kaçak maldan daha büyük..."
+                ],
+                "2": [
+                    "Liman devriyesi ile bir baskın koordine ediliyor...",
+                    "Kaçakçılar, ışıktaki hamamböcekleri gibi dağılıyor...",
+                    "Elebaşı, teknesinde köşeye sıkıştırılıyor..."
+                ],
+                "3": [
+                    "Yasadışı eserler, müze için el konuluyor...",
+                    "Liman bir kez daha güvende...",
+                    "Deniz, sırlarını teslim ediyor..."
+                ]
+            }
+        },
+        "CaseRare2": {
+            "title": "Sahtecilik Çetesi",
+            "texts": {
+                "0": [
+                    "Sahte pasaportlar, karaborsa pazarını dolduruyor...",
+                    "Kalite, amatörler için çok yüksek...",
+                    "Dedektif, kağıt izini takip ediyor..."
+                ],
+                "1": [
+                    "Mürekkep numuneleri, belirli bir matbaaya işaret ediyor...",
+                    "Gizli bir bodrum, yüksek kaliteli presler ortaya çıkarıyor...",
+                    "Usta sahteci, sıkı çalışıyor..."
+                ],
+                "2": [
+                    "Operasyon, baskının ortasında patlatılıyor...",
+                    "Kimlikler korunuyor, hayatlar kurtarılıyor...",
+                    "Dedektif, beceriyi takdir ediyor, ama sanatçıyı tutuklıyor..."
+                ],
+                "3": [
+                    "Baskı dağıtılıyor, plakalar imha ediliyor...",
+                    "Sınır güvenliği, rahat bir nefes alıyor...",
+                    "Gerçek, tek geçerli para birimi olarak kalıyor..."
+                ]
+            }
+        },
+        "CaseRare3": {
+            "title": "Uzun Dolandırıcılık",
+            "texts": {
+                "0": [
+                    "Emekliler, hayat birikimlerini kaybediyor...",
+                    "Karizmatik bir yatırımcı, imkansız getiriler vaat ediyor...",
+                    "Dedektif, para izini takip ediyor..."
+                ],
+                "1": [
+                    "Paravan şirketler, offshore hesaplara yol açıyor...",
+                    "\"Yatırımcı\", çalıntı hayaller üzerine lüks bir hayat yaşıyor...",
+                    "Kızgın eski çalışanlardan kanıt toplaniyor..."
+                ],
+                "2": [
+                    "Piramit şeması, inceleme altında çöküyor...",
+                    "Varlıklar, kaçış riski uçmadan dondurulıyor...",
+                    "Dolandırıcı, bir itirafta kandırılıyor..."
+                ],
+                "3": [
+                    "Para, mağdurlara iade ediliyor...",
+                    "Açgözlülük cezalandırılıyor, adalet restore ediliyor...",
+                    "Gerçek olamayacak kadar iyi geliyorsa, öyledir diye bir ders..."
+                ]
+            }
+        },
+        "CaseVeteran1": {
+            "title": "Politikacının Sırrı",
+            "texts": {
+                "0": [
+                    "Yüksek rütbeli bir yetkili garip davranıyor...",
+                    "Yaklaşan seçimlerde bir şantaj tehdidi asılı duruyor...",
+                    "Dedektif, güç koridorlarında dikkatle ilerliyor..."
+                ],
+                "1": [
+                    "Otoparklarda gizli toplantılar...",
+                    "Nakit zarflar el değiştiriyor...",
+                    "Sır, bir kariyer yıkabilir ve şehri istikrarsızlaştırabilir..."
+                ],
+                "2": [
+                    "Gerçek, yıllar öncesinden bir örtbas içeriyor...",
+                    "Dedektif, ahlaki bir ikilemle karşı karşıya...",
+                    "Kamu çıkarı, özel utanca karşı tartılıyor..."
+                ],
+                "3": [
+                    "Yetkili istifa ediyor, şantajcılar açığa çıkarılıyor...",
+                    "Dürüstlük, acı verici gerçekle korunuyor...",
+                    "Şehir, daha iyi liderleri hak ediyor..."
+                ]
+            }
+        },
+        "CaseVeteran2": {
+            "title": "Sendika Savaşı",
+            "texts": {
+                "0": [
+                    "İki rakip aile, savaşın eşiğinde...",
+                    "Toprak anlaşmazlıkları, sokaklarda şiddetli hale geliyor...",
+                    "Dedektif, barışı bulmak için her iki tarafı da oynamalı..."
+                ],
+                "1": [
+                    "Silah sevkiyatları engelleniyor...",
+                    "Teğmenler, güvenli evlerde sorgulanıyor...",
+                    "Alevleri körükleyen üçüncü bir taraf bulunuyor..."
+                ],
+                "2": [
+                    "Polis gözetimi altında bir toplantı ayarlanıyor...",
+                    "Kışkırtıcının bir çifte ajan olduğu ortaya çıkıyor...",
+                    "Aileler, oyuna getirildiğini anlıyor..."
+                ],
+                "3": [
+                    "Huzursuz bir ateşkes yapılıyor...",
+                    "Kan dökülmesi şimdilik önleniyor...",
+                    "Yeraltı, değişken ama istikrarlı kalıyor..."
+                ]
+            }
+        },
+        "EpicCase1": {
+            "title": "Katana Kasabı",
+            "texts": {
+                "0": [
+                    "Karanlığın perdesi altında şehir sokaklarında bir kabus dolaşıyor...",
+                    "Cesetler, cerrahi hassasiyetle, eski bir kılıçla ikiye bölünmüş halde bulunuyor...",
+                    "Kasap tekrar tekrar saldırdıkça halk korkuyla kamlanıyor...",
+                    "Dedektif, törensel bir dehşet dünyasına giriyor..."
+                ],
+                "1": [
+                    "Kılıç analizi, feodal Japonya'dan törensel bir katana ortaya çıkarıyor...",
+                    "Her vuruş, usta düzeyi kılıç kullanımı gösteriyor...",
+                    "Kan serpinti desenleri, şimşek hızında idamların hikayelerini anlatıyor...",
+                    "Bu katil bir amatör değil - bu bir ölüm sanatçısı..."
+                ],
+                "2": [
+                    "Kaostan desenler ortaya çıkıyor - deliliğe bir yöntem...",
+                    "Eski savaşçı kodları, kasabın kurbanlarının seçimini yönlendiriyor...",
+                    "Cinayetler, sadece yukarıdan görülebilen bir sembol oluşturuyor...",
+                    "Bu rastgele şiddet değil - bu karanlık bir ritüel..."
+                ],
+                "3": [
+                    "Nihai yüzleşme, kan ve çelikle ortaya çıkıyor...",
+                    "Usta ustaya karşı, bir ölüm dansında...",
+                    "Kasabın terör saltanatı, şiirsel adaletle sona eriyor...",
+                    "Şehir yeniden nefes alabilir, ama yaralar kalıyor..."
+                ]
+            }
+        },
+        "EpicCase2": {
+            "title": "Mutant Canavar",
+            "texts": {
+                "0": [
+                    "Raporlar dolup taşıyor - doğal olmayan bir şey kanalizasyonlarda dolaşıyor...",
+                    "Tanıklar, gerçek olamayacak kadar korkunç bir yaratıktan bahsediyor...",
+                    "Bilim ve kabus, yaşayan teröre dönüştü...",
+                    "Dedektif, imkansızla yüzleşmek için karanlığa iniyor..."
+                ],
+                "1": [
+                    "Biyolojik örnekler, bilinen tüm sınıflandırmaları meydan okuyor...",
+                    "DNA analizi, büyük ölçekte genetik müdahaleyi ortaya çıkarıyor...",
+                    "Bu evrim değil - bu kasıtlı yaratım...",
+                    "Biri Tanrı'yı oynadı ve bir canavar doğurdu..."
+                ],
+                "2": [
+                    "Yaratığın mutasyonları korkunç bir amaca hizmet ediyor...",
+                    "Yasadışı deneyler, insanı canavara dönüştürüyor...",
+                    "Gerçek, yaratığın kendisinden daha korkunç...",
+                    "Kurumsal açgözlülük, doğaya karşı suçlara yükseltildi..."
+                ],
+                "3": [
+                    "Canavar, aşırı önyargıyla etkisiz hale getiriliyor...",
+                    "Yaratıcıları, yargılanmaları için ışığa sürükleniyor...",
+                    "Kabus sona eriyor ama sorular sonsuza dek devam ediyor...",
+                    "Bazı kapılar asla açılmamalı..."
+                ]
+            }
+        },
+        "EpicCase3": {
+            "title": "Gölge Hükümeti",
+            "texts": {
+                "0": [
+                    "Şehri içeriden kontrol eden bir kabal fısıltıları...",
+                    "Oylar kullanılmadan önce kararlar alınıyor...",
+                    "Dedektif, toplumu çözebilecek bir iplik çekiyor...",
+                    "Gözetim, \"var olmayan\" yüzleri ortaya çıkarıyor..."
+                ],
+                "1": [
+                    "Metro sisteminin altında gizli bir sığınak bulunuyor...",
+                    "Yetkisiz güç şebekelerinde çalışan operasyonlar...",
+                    "Herkesi, her yerde izliyorlar...",
+                    "Kontrolün ölçeği dehşet verici..."
+                ],
+                "2": [
+                    "İç çembere sızmak, imkansız riskler gerektiriyor...",
+                    "Kodlar kırılıyor, güvenlik duvarları aşılıyor...",
+                    "Kuklacılar tanımlanıyor...",
+                    "Demokrasi, bakımını yaptıkları bir cephe..."
+                ],
+                "3": [
+                    "Ağ, basına açığa çıkarılıyor...",
+                    "Gölge liderler rüzgara karışıyor...",
+                    "Şehir, sert bir gerçeklikle uyanıyor...",
+                    "Özgürlük geri kazanılıyor, ama ne pahasına..."
+                ]
+            }
+        },
+        "EpicCase4": {
+            "title": "Zaman Yolcusu",
+            "texts": {
+                "0": [
+                    "Gelecekten eserler, antika dükkânlarında beliriyor...",
+                    "Bir figür, 1920, 1950 ve bugünden fotoğraflarda görülüyor...",
+                    "Zaman çizelgesi kanıyor...",
+                    "Dedektif, imkansızı araştırıyor..."
+                ],
+                "1": [
+                    "Anlaşılmasının ötesinde teknoloji kurtarılıyor...",
+                    "Yolcu, tarihi düzelttiğini iddia ediyor...",
+                    "Paradokslar, gerçekliği yok etmekle tehdit ediyor...",
+                    "Bir kurtarıcı mı yoksa yok edici mi?"
+                ],
+                "2": [
+                    "Şehir meydanında zamansal çatlaklar açılıyor...",
+                    "Geçmiş, şimdi ve gelecek çarpışıyor...",
+                    "Dedektif, döngüyü kapatmaya yardım etmeli...",
+                    "Bir hayatı kurtarmak ile zamanın kendisini kurtarmak arasında bir seçim..."
+                ],
+                "3": [
+                    "Yolcu, kendi zamanına dönüyor...",
+                    "Zaman çizelgesi istikrara kavuşuyor, anılar soluyor...",
+                    "Sadece dedektif, olan geleceği hatırlıyor...",
+                    "Tarih düzeltilerek akıyor..."
+                ]
+            }
+        }
+    }
+}

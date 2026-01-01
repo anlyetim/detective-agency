@@ -1,0 +1,99 @@
+{
+    "items": {
+        "title": "Items & Equipment",
+        "select Detective": "Select Detective",
+        "equipmentSlots": "Equipment Slots",
+        "slot": "Slot",
+        "empty": "Empty",
+        "unequip": "Unequip",
+        "inventory": "Inventory",
+        "noItems": "No items yet. Complete cases to earn items!",
+        "equipped": "Equipped",
+        "equipToSlot": "Equip to slot:",
+        "noDetectives": "No detectives unlocked yet!",
+        "level": "Level",
+        "upgrade": "Upgrade",
+        "maxLevel": "MAX",
+        "upgradeCost": "Upgrade Cost: ${cost}",
+        "aid_bandage_epic": {
+            "name": "Epic Bandage",
+            "desc": "Healing speed +{value}%"
+        },
+        "band_aid": {
+            "name": "Bloody Band-Aid",
+            "desc": "Healing speed +{value}%"
+        },
+        "car_key_epic": {
+            "name": "Epic Car Key",
+            "desc": "Case arrival speed +{value}%"
+        },
+        "shoes": {
+            "name": "Old Shoes",
+            "desc": "Speed +{value}"
+        },
+        "chemistry": {
+            "name": "Chemical Materials",
+            "desc": "Evidence +{value}"
+        },
+        "laptop": {
+            "name": "Broken Laptop",
+            "desc": "Evidence +{value}"
+        },
+        "magnifying_glass": {
+            "name": "Broken Magnifying Glass",
+            "desc": "Evidence analysis speed +{value}%"
+        },
+        "magnifying_glass_lv2": {
+            "name": "Magnifying Glass",
+            "desc": "Evidence analysis speed +{value}%"
+        },
+        "glasses": {
+            "name": "Broken Glasses",
+            "desc": "Intelligence +{value}"
+        },
+        "pencil": {
+            "name": "Broken Pencil",
+            "desc": "Intelligence +{value}"
+        },
+        "notebook": {
+            "name": "Torn Notebook",
+            "desc": "Thinking speed +{value}%"
+        },
+        "notebook_lv2": {
+            "name": "Notebook",
+            "desc": "Thinking speed +{value}%"
+        },
+        "gun": {
+            "name": "Jammed Pistol",
+            "desc": "Injury risk -{value}%"
+        },
+        "revolver_lv2": {
+            "name": "Six-Shooter",
+            "desc": "Injury risk -{value}%"
+        },
+        "knife": {
+            "name": "Bloody Knife",
+            "desc": "Injury risk -{value}%"
+        },
+        "katana_epic": {
+            "name": "Katana",
+            "desc": "Injury risk -{value}%"
+        },
+        "rope": {
+            "name": "Rope",
+            "desc": "Dodge chance +{value}%"
+        },
+        "rope_lv2": {
+            "name": "Thick Rope",
+            "desc": "Dodge chance +{value}%"
+        },
+        "debit_card_epic": {
+            "name": "Debit Card",
+            "desc": "Income +{value}%"
+        },
+        "phone": {
+            "name": "Broken Phone",
+            "desc": "Risk +{value}"
+        }
+    }
+}

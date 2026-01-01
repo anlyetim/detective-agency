@@ -1,0 +1,998 @@
+{
+    "common": {
+        "level": "LVL",
+        "currency": "Currency",
+        "experience": "XP",
+        "unknown": "Unknown",
+        "seconds": "s",
+        "percent": "{value}%",
+        "close": "Close"
+    },
+    "nav": {
+        "detectives": "Detectives",
+        "cases": "Cases",
+        "items": "Items",
+        "newspaper": "Newspaper",
+        "settings": "Settings"
+    },
+    "detectives": {
+        "title": "Detective Agency",
+        "activeDetectives": "Active Detectives",
+        "lockedDetectives": "Locked Detectives",
+        "available": "Available",
+        "working": "Working on case",
+        "recovering": "Recovering...",
+        "injured": "Injured. Cannot be assigned.",
+        "showUpgrades": "Show Upgrades",
+        "hideUpgrades": "Hide Upgrades",
+        "upgradeStats": "Upgrade Stats (Base Only)",
+        "maxLevel": "MAX",
+        "stats": {
+            "speed": "Speed",
+            "evidence": "Evidence",
+            "intelligence": "Intelligence",
+            "risk": "Risk"
+        },
+        "ranks": {
+            "master": "Master",
+            "expert": "Expert",
+            "veteran": "Veteran",
+            "skilled": "Skilled",
+            "rookie": "Rookie"
+        },
+        "selectDetective": "Select Detective",
+        "names": {
+            "rookie_blake": "Rookie Blake",
+            "detective_noir": "Detective Noir",
+            "agent_shadow": "Agent Shadow",
+            "inspector_steel": "Inspector Steel",
+            "detective_crimson": "Detective Crimson",
+            "master_phantom": "Master Phantom",
+            "legendary_oracle": "Legendary Oracle"
+        },
+        "tasks": {
+            "solve_3_common": "Solve 3 Common cases",
+            "earn_500_coins": "Earn 500 coins",
+            "solve_10_total": "Solve 10 cases total",
+            "equip_4_items": "Equip 4 items on any detective",
+            "complete_2_veteran": "Complete 2 Veteran cases",
+            "reach_level_10": "Reach Agency Level 10"
+        }
+    },
+    "cases": {
+        "title": "Active Cases",
+        "autoAssignMode": "Auto-Assign Mode",
+        "on": "ON",
+        "off": "OFF",
+        "noCases": "No active cases. New cases will appear soon...",
+        "investigating": "investigating...",
+        "viewDetails": "(Click to view details)",
+        "assignDetective": "Assign Detective...",
+        "noQualifiedDetectives": "No qualified detectives available",
+        "progress": "Investigation Progress"
+    },
+    "items": {
+        "title": "Items & Equipment",
+        "select Detective": "Select Detective",
+        "slot": "Slot",
+        "empty": "Empty",
+        "inventory": "Inventory",
+        "noItems": "No items yet. Complete cases to earn items!",
+        "equipToSlot": "Equip to slot:",
+        "noDetectives": "No detectives unlocked yet!",
+        "level": "Level",
+        "upgrade": "Upgrade",
+        "maxLevel": "MAX",
+        "equip": "Equip",
+        "unequip": "Unequip",
+        "equipped": "Equipped",
+        "equippedTo": "Equipped to {name}",
+        "equipmentSlots": "Equipment Slots",
+        "noSlots": "No empty slots! Unequip something first.",
+        "upgradeCost": "Upgrade: ${cost}",
+        "aid_bandage_epic": {
+            "name": "Epic Bandage",
+            "desc": "Healing speed +{value}%"
+        },
+        "band_aid": {
+            "name": "Bloody Band-Aid",
+            "desc": "Healing speed +{value}%"
+        },
+        "car_key_epic": {
+            "name": "Epic Car Key",
+            "desc": "Case arrival speed +{value}%"
+        },
+        "shoes": {
+            "name": "Old Shoes",
+            "desc": "Speed +{value}"
+        },
+        "chemistry": {
+            "name": "Chemical Materials",
+            "desc": "Evidence +{value}"
+        },
+        "laptop": {
+            "name": "Broken Laptop",
+            "desc": "Evidence +{value}"
+        },
+        "magnifying_glass": {
+            "name": "Broken Magnifying Glass",
+            "desc": "Evidence analysis speed +{value}%"
+        },
+        "magnifying_glass_lv2": {
+            "name": "Magnifying Glass",
+            "desc": "Evidence analysis speed +{value}%"
+        },
+        "glasses": {
+            "name": "Broken Glasses",
+            "desc": "Intelligence +{value}"
+        },
+        "pencil": {
+            "name": "Broken Pencil",
+            "desc": "Intelligence +{value}"
+        },
+        "notebook": {
+            "name": "Torn Notebook",
+            "desc": "Thinking speed +{value}%"
+        },
+        "notebook_lv2": {
+            "name": "Notebook",
+            "desc": "Thinking speed +{value}%"
+        },
+        "gun": {
+            "name": "Jammed Pistol",
+            "desc": "Injury risk -{value}%"
+        },
+        "revolver_lv2": {
+            "name": "Six-Shooter",
+            "desc": "Injury risk -{value}%"
+        },
+        "knife": {
+            "name": "Bloody Knife",
+            "desc": "Injury risk -{value}%"
+        },
+        "katana_epic": {
+            "name": "Katana",
+            "desc": "Injury risk -{value}%"
+        },
+        "rope": {
+            "name": "Rope",
+            "desc": "Dodge chance +{value}%"
+        },
+        "rope_lv2": {
+            "name": "Thick Rope",
+            "desc": "Dodge chance +{value}%"
+        },
+        "debit_card_epic": {
+            "name": "Debit Card",
+            "desc": "Income +{value}%"
+        },
+        "phone": {
+            "name": "Broken Phone",
+            "desc": "Risk +{value}"
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "audio": "Audio",
+        "backgroundMusic": "Background Music",
+        "volume": "Volume",
+        "language": "Language",
+        "gameInfo": "Game Info",
+        "game": "Game",
+        "version": "Version",
+        "type": "Type",
+        "description": "Manage your detective agency, assign detectives to cases, upgrade their skills, and earn currency even while offline!",
+        "dangerZone": "Danger Zone",
+        "resetProgress": "Reset All Progress",
+        "resetConfirm": "Are you sure you want to reset all progress? This cannot be undone!",
+        "footer": "Built with React + Phaser 3"
+    },
+    "idle": {
+        "welcomeBack": "Welcome Back!",
+        "awayFor": "You were away for",
+        "currencyEarned": "Currency Earned:",
+        "experienceGained": "Experience Gained:",
+        "casesCompleted": "Cases Completed:",
+        "collectRewards": "Collect Rewards"
+    },
+    "investigation": {
+        "stages": {
+            "0": "Detective is traveling to the scene...",
+            "20": "Searching for clues and evidence...",
+            "40": "Collecting critical evidence...",
+            "60": "Analyzing fingerprints and traces...",
+            "80": "Confronting the truth...",
+            "100": "Case successfully resolved!"
+        }
+    },
+    "rarities": {
+        "COMMON": "Common",
+        "on": "ON",
+        "off": "OFF",
+        "unlock": "UNLOCK",
+        "autoAssignMode": "AUTO ASSIGN",
+        "investigationPaused": "Investigation Paused.",
+        "RARE": "Rare"
+    },
+    "upgrades": {
+        "title": "Agency Upgrades",
+        "level": "Level",
+        "max": "MAX",
+        "upgrade": "Upgrade",
+        "maxLevel": "Max Level",
+        "availableXP": "Available XP",
+        "items": {
+            "auto_assistant": {
+                "name": "Field Assistants",
+                "description": "Automatically solves small cases over time."
+            },
+            "risk_mgmt": {
+                "name": "Risk Management",
+                "description": "Reduces chances of detective injury."
+            },
+            "efficiency": {
+                "name": "Logistics Network",
+                "description": "Increases case spawn rate."
+            },
+            "recovery": {
+                "name": "Medical Retainer",
+                "description": "Speeds up injury recovery time."
+            }
+        }
+    },
+    "newspaper": {
+        "title": "THE CITY GAZETTE",
+        "recentHeadlines": "Recent Headlines",
+        "noNews": "No recent news. The city awaits...",
+        "effect": "Effect:",
+        "effects": {
+            "detectiveAvailable": "Detective Available"
+        },
+        "crime": {
+            "LOW": "The city is safe and peaceful",
+            "MEDIUM": "Crime activity is moderate",
+            "HIGH": "Crime wave sweeping the city",
+            "CHAOS": "The city is in complete chaos!"
+        },
+        "time": {
+            "justNow": "Just Now",
+            "minAgo": "min ago",
+            "minsAgo": "mins ago",
+            "hourAgo": "hour ago",
+            "hoursAgo": "hours ago"
+        },
+        "crimeRate": {
+            "safe": "SAFE",
+            "high": "HIGH RISK",
+            "chaos": "CHAOS"
+        },
+        "events": {
+            "CRIME_WAVE": {
+                "title": "Crime Rates Surge in Downtown",
+                "description": "Analysts report a troubling spike in muggings and break-ins. Citizens are advised to stay indoors after dark."
+            },
+            "PEACEFUL": {
+                "title": "Record Low Crime Reports",
+                "description": "The police commissioner praises the recent calm. Parks are full of families enjoying the safe streets."
+            },
+            "INJURY_RISK": {
+                "title": "Riots Erupt in Industrial District",
+                "description": "Protests have turned violent. Emergency services are overwhelmed, and operations in the area are dangerous."
+            },
+            "BONUS": {
+                "title": "City Hall Announces Grant",
+                "description": "The mayor has unveiled a new public safety initiative. Additional resources have been allocated to local agencies."
+            },
+            "DETECTIVE_INJURED": {
+                "title": "Detective Injured!",
+                "description": "{name} was injured on duty and is recovering."
+            },
+            "DETECTIVE_RECOVERED": {
+                "title": "Detective Recovered",
+                "description": "{name} has recovered and is ready for duty."
+            },
+            "FESTIVAL": {
+                "title": "City Festival",
+                "description": "Streets are alive with music and food. Morale is high!"
+            },
+            "NEW_SCHOOL": {
+                "title": "New School Opens",
+                "description": "Investment in education brightens the future."
+            },
+            "PARK_OPENING": {
+                "title": "Central Park Opening",
+                "description": "Citizens enjoy the new green space."
+            },
+            "CHARITY_GALA": {
+                "title": "Charity Gala",
+                "description": "City elites raise funds for orphanages."
+            },
+            "TECH_BOOM": {
+                "title": "Tech Boom",
+                "description": "New startup hub attracts investment."
+            },
+            "RIOTS": {
+                "title": "Street Riots",
+                "description": "Protests spiral out of control, shops looted."
+            },
+            "BLACKOUT": {
+                "title": "Major Blackout",
+                "description": "City plunged into darkness, crime spikes."
+            },
+            "GANG_WAR": {
+                "title": "Gang War",
+                "description": "Two major gangs clash for territory."
+            },
+            "CORRUPTION": {
+                "title": "Corruption Scandal",
+                "description": "Top officials caught accepting bribes."
+            },
+            "PRISON_BREAK": {
+                "title": "Prison Break",
+                "description": "Dangerous criminals at large, stay safe."
+            },
+            "CAT_RESCUED": {
+                "title": "Cat Rescued",
+                "description": "Firefighters save a cat stuck in a tree."
+            },
+            "STREET_MARKET": {
+                "title": "Street Market",
+                "description": "Local farmers display fresh produce."
+            },
+            "TRAFFIC_JAM": {
+                "title": "Gridlock",
+                "description": "Major accident halts traffic on main arteries."
+            },
+            "SUBWAY_DELAY": {
+                "title": "Subway Delay",
+                "description": "Technical fault causes transit delays."
+            },
+            "LOCAL_HERO": {
+                "title": "Local Hero",
+                "description": "Citizen saves neighbor from burning building."
+            },
+            "RAIN_STORM": {
+                "title": "Heavy Rain",
+                "description": "Downpour risks localized flooding."
+            },
+            "MUSEUM_EXHIBIT": {
+                "title": "New Exhibit",
+                "description": "Ancient artifacts on display at the museum."
+            },
+            "BRIDGE_REPAIR": {
+                "title": "Bridge Repair",
+                "description": "Old bridge closed for maintenance."
+            },
+            "ELECTION_CYCLE": {
+                "title": "Election Season",
+                "description": "Candidates hold final rallies."
+            },
+            "SPORT_VICTORY": {
+                "title": "Championship!",
+                "description": "Local team wins the grand final!"
+            }
+        }
+    },
+    "injury": {
+        "notification": {
+            "title": "Detective Injured!",
+            "subtitle": "{name} was injured in the line of duty"
+        },
+        "types": {
+            "BROKEN_LEG": "Broken Leg",
+            "HEART_ATTACK": "Heart Attack",
+            "SURGERY": "Requires Surgery",
+            "STABBED": "Stabbed",
+            "CONCUSSION": "Concussion",
+            "GUNSHOT": "Gunshot Wound"
+        },
+        "descriptions": {
+            "BROKEN_LEG": "Will heal naturally over time",
+            "HEART_ATTACK": "Requires medical expertise to recover",
+            "SURGERY": "Needs immediate surgical intervention",
+            "STABBED": "Recovering from stab wounds",
+            "CONCUSSION": "Needs rest and time to recover",
+            "GUNSHOT": "Critical condition, needs emergency care"
+        },
+        "healMethods": {
+            "time": "Heals in: {time}",
+            "xp": "Heal with XP: {cost}",
+            "currency": "Heal with Money: ${cost}"
+        },
+        "healButton": "Heal Now",
+        "cannotAfford": "Not enough {resource}"
+    },
+    "cases_data": {
+        "Case1": {
+            "title": "The Missing Heir",
+            "texts": {
+                "0": [
+                    "The detective heads toward the gothic mansion on the hill...",
+                    "Shadows dance across the weathered stone facade...",
+                    "A sense of dread fills the air as they approach..."
+                ],
+                "1": [
+                    "Inside, dust-covered halls echo with forgotten memories...",
+                    "The estate groans under the weight of its secrets...",
+                    "Each room tells a story of wealth and tragedy..."
+                ],
+                "2": [
+                    "Ancient documents scatter across the mahogany desk...",
+                    "Faded photographs reveal faces frozen in time...",
+                    "The ledger shows mysterious transactions from decades past..."
+                ],
+                "3": [
+                    "The truth emerges from the darkness like a specter...",
+                    "Pieces of the puzzle align with chilling clarity...",
+                    "The missing heir's fate is finally revealed..."
+                ]
+            }
+        },
+        "Case2": {
+            "title": "Alleyway Murder",
+            "texts": {
+                "0": [
+                    "The detective arrives at the crime scene, rain washing away evidence...",
+                    "Neon lights flicker above, casting crimson shadows on wet pavement...",
+                    "The scent of copper and decay lingers in the narrow passage..."
+                ],
+                "1": [
+                    "Crimson stains tell a violent story on the brickwork...",
+                    "Each drop of blood forms a macabre trail through the darkness...",
+                    "The victim's final moments are etched into every surface..."
+                ],
+                "2": [
+                    "Witnesses emerge from the shadows, reluctant and fearful...",
+                    "Fragmented testimonies piece together a violent encounter...",
+                    "The terrified faces reveal more than their words..."
+                ],
+                "3": [
+                    "The killer's identity becomes clear through careful deduction...",
+                    "Justice approaches with inevitable precision...",
+                    "Another predator is dragged into the light..."
+                ]
+            }
+        },
+        "Case3": {
+            "title": "Stolen Ledger",
+            "texts": {
+                "0": [
+                    "The detective infiltrates the corporate archive under cover of night...",
+                    "Fluorescent lights hum ominously in the sterile corridors...",
+                    "Security cameras are methodically disabled one by one..."
+                ],
+                "1": [
+                    "Fingerprints dust the polished surfaces, revealing hidden touches...",
+                    "The crime scene speaks volumes to the trained eye...",
+                    "Evidence of intrusion lurks in every displaced folder..."
+                ],
+                "2": [
+                    "Hidden compartments yield forbidden documentation...",
+                    "Encrypted notes unravel a conspiracy of greed and betrayal...",
+                    "The paper trail leads to the highest echelons of power..."
+                ],
+                "3": [
+                    "The case closes with damning evidence secured...",
+                    "Corporate corruption exposed, justice served cold...",
+                    "Another white-collar crime brought to light..."
+                ]
+            }
+        },
+        "Case4": {
+            "title": "Vanishing Witness",
+            "texts": {
+                "0": [
+                    "Tracking the witness's last known movements through the city...",
+                    "CCTV footage reveals a figure disappearing into the urban sprawl...",
+                    "The trail grows cold as night falls over the streets..."
+                ],
+                "1": [
+                    "Surveillance equipment deployed at key intersections...",
+                    "Digital eyes watch every corner where they might appear...",
+                    "The net tightens around potential hiding places..."
+                ],
+                "2": [
+                    "Critical evidence surfaces from an unexpected source...",
+                    "A breakthrough illuminates the path forward...",
+                    "The pieces finally align to reveal their location..."
+                ],
+                "3": [
+                    "The witness is recovered, shaken but alive...",
+                    "Protection detail established, threat neutralized...",
+                    "Another life saved from the shadows..."
+                ]
+            }
+        },
+        "Case5": {
+            "title": "The Blackmail Scheme",
+            "texts": {
+                "0": [
+                    "Anonymous letters lead to a web of lies and manipulation...",
+                    "Someone's darkest secrets are being weaponized...",
+                    "The detective delves into a world of coercion and fear..."
+                ],
+                "1": [
+                    "Paper trails reveal systematic extortion across the city...",
+                    "Each victim too terrified to speak, trapped in silence...",
+                    "The blackmailer's pattern becomes disturbingly clear..."
+                ],
+                "2": [
+                    "Digital forensics expose the architect of this nightmare...",
+                    "Money flows through shell accounts and dead drops...",
+                    "The conspiracy reaches further than imagined..."
+                ],
+                "3": [
+                    "The blackmailer's empire crumbles under investigation...",
+                    "Victims are freed from their torment at last...",
+                    "Justice prevails over manipulation and fear..."
+                ]
+            }
+        },
+        "Case6": {
+            "title": "Corporate Sabotage",
+            "texts": {
+                "0": [
+                    "Industrial espionage cuts deep into the corporate heart...",
+                    "Millions in losses point to an inside operative...",
+                    "The detective navigates a maze of corporate politics..."
+                ],
+                "1": [
+                    "Security footage analyzed frame by frame for anomalies...",
+                    "Access logs reveal unauthorized entries at odd hours...",
+                    "The saboteur leaves traces invisible to untrained eyes..."
+                ],
+                "2": [
+                    "Competing interests and buried grudges surface...",
+                    "The motive crystallizes from business documents...",
+                    "Greed and ambition drive the betrayal..."
+                ],
+                "3": [
+                    "The saboteur is identified and apprehended...",
+                    "Corporate secrets secured once more...",
+                    "Trust is rebuilt through decisive action..."
+                ]
+            }
+        },
+        "Case7": {
+            "title": "The Poison Chalice",
+            "texts": {
+                "0": [
+                    "A high-society gala becomes a scene of deadly intrigue...",
+                    "Among champagne and silk, murder strikes silently...",
+                    "The detective races against time as toxin spreads..."
+                ],
+                "1": [
+                    "Chemical analysis reveals a rare and exotic poison...",
+                    "Only a handful could procure such a lethal substance...",
+                    "The list of suspects narrows with each test result..."
+                ],
+                "2": [
+                    "Motives hidden beneath polite smiles come to light...",
+                    "Jealousy and revenge simmer beneath the surface...",
+                    "The killer made one fatal mistake..."
+                ],
+                "3": [
+                    "Justice is served with ironic precision...",
+                    "The poisoner is caught in their own trap...",
+                    "High society learns that no one is above the law..."
+                ]
+            }
+        },
+        "Case8": {
+            "title": "Digital Phantom",
+            "texts": {
+                "0": [
+                    "Cybercrimes leave virtual fingerprints across the network...",
+                    "A hacker ghost operates from the digital shadows...",
+                    "The detective enters a realm of code and encryption..."
+                ],
+                "1": [
+                    "Tracing IP addresses through international bounces...",
+                    "Each layer of protection slowly peeled away...",
+                    "The phantom's lair grows closer with each breakthrough..."
+                ],
+                "2": [
+                    "Patterns emerge from seemingly random attacks...",
+                    "The hacker's signature becomes recognizable...",
+                    "Digital forensics reveal their true location..."
+                ],
+                "3": [
+                    "The phantom is exposed and their reign ended...",
+                    "Systems secured, data recovered...",
+                    "The virtual becomes very real for the perpetrator..."
+                ]
+            }
+        },
+        "Case9": {
+            "title": "The Lost Cat",
+            "texts": {
+                "0": [
+                    "A tearful owner reports a missing prize-winning Persian...",
+                    "Posters are plastered across the neighborhood...",
+                    "The detective checks local shelters and alleyways..."
+                ],
+                "1": [
+                    "A tuft of white fur is found near the fish market...",
+                    "Witnesses report a blur of white fur chasing a mouse...",
+                    "The trail leads to the old bakery..."
+                ],
+                "2": [
+                    "Meows echo from behind the flour sacks...",
+                    "The detective offers a treat as a peace offering...",
+                    "Trust is gained with patience and gentle words..."
+                ],
+                "3": [
+                    "The feline is reunited with its grateful owner...",
+                    "A reward is given, along with a free pastry...",
+                    "Not all cases involve crime, but all matter..."
+                ]
+            }
+        },
+        "Case10": {
+            "title": "The Bakery Theft",
+            "texts": {
+                "0": [
+                    "The morning batch of croissants has vanished...",
+                    "Flour footprints lead away from the back door...",
+                    "The baker is distraught over the lost revenue..."
+                ],
+                "1": [
+                    "The detective follows the dusty trail down the street...",
+                    "Crumbs betray the thief's location...",
+                    "A group of hungry orphans is found huddled together..."
+                ],
+                "2": [
+                    "The thief is revealed to be a desperate father...",
+                    "Compassion weighs against the letter of the law...",
+                    "The detective negotiates a solution..."
+                ],
+                "3": [
+                    "The baker agrees to a work-for-food arrangement...",
+                    "Justice is served, but with a side of mercy...",
+                    "The community is stronger for it..."
+                ]
+            }
+        },
+        "CaseCommon1": {
+            "title": "The Haunted Attic",
+            "texts": {
+                "0": [
+                    "Strange noises plague an elderly resident at night...",
+                    "Ghost stories circulate among the superstitious neighbors...",
+                    "The detective investigates with skepticism and a flashlight..."
+                ],
+                "1": [
+                    "Creaking floorboards overhead suggest a physical intruder...",
+                    "Dust patterns reveal recent disturbances...",
+                    "A draft from a broken window whistles eerily..."
+                ],
+                "2": [
+                    "The \"ghost\" is cornered near the chimney...",
+                    "Raccoons hiss from their nesting spot...",
+                    "The supernatural explanation crumbles..."
+                ],
+                "3": [
+                    "Animal control handles the \"spirits\"...",
+                    "The resident sleeps soundly once more...",
+                    "Another urban legend debunked..."
+                ]
+            }
+        },
+        "CaseCommon2": {
+            "title": "Vandalism Spree",
+            "texts": {
+                "0": [
+                    "Fresh graffiti defaces the town hall overnight...",
+                    "Spray paint cans are left as a mocking signature...",
+                    "The mayor demands immediate results..."
+                ],
+                "1": [
+                    "Surveillance footage shows a hooded figure...",
+                    "Paint flecks on a fence indicate the escape route...",
+                    "The detective patrols the usual skate parks..."
+                ],
+                "2": [
+                    "A suspect is caught with stained fingers...",
+                    "The \"artist\" claims it's political expression...",
+                    "Community service seems a fitting punishment..."
+                ],
+                "3": [
+                    "The walls are cleaned, the message remains...",
+                    "Youthful energy is redirected to legal murals...",
+                    "Order is restored to the public square..."
+                ]
+            }
+        },
+        "CaseCommon3": {
+            "title": "The Missing Ring",
+            "texts": {
+                "0": [
+                    "A frantic party guest notices her emerald unexpected gone...",
+                    "Music stops as guests are asked to search the floor...",
+                    "Accusations fly among the intoxicated crowd..."
+                ],
+                "1": [
+                    "The detective interviews the catering staff and guests...",
+                    "A loose fitting on a glove gives a clue...",
+                    "The timeline of events is reconstructed..."
+                ],
+                "2": [
+                    "The ring is not stolen, but misplaced...",
+                    "It sparkles from the bottom of a punch bowl...",
+                    "Relief washes over the room..."
+                ],
+                "3": [
+                    "Apologies are exchanged, the party resumes...",
+                    "The detective leaves quietly, job done...",
+                    "Carelessness, not malice, was the culprit..."
+                ]
+            }
+        },
+        "CaseCommon4": {
+            "title": "Library Mystery",
+            "texts": {
+                "0": [
+                    "Books are being rearranged into nonsensical orders...",
+                    "The librarian suspects a prankster is at work...",
+                    "Dewey Decimal System is in absolute chaos..."
+                ],
+                "1": [
+                    "Secret messages are found decoded in the titles...",
+                    "A pattern emerges from the chaos...",
+                    "Someone is trying to communicate..."
+                ],
+                "2": [
+                    "A shy student is found trying to impress a crush...",
+                    "The code reveals a clumsy invitation to prom...",
+                    "The mystery is one of young love..."
+                ],
+                "3": [
+                    "The books are reshelved, the date is accepted...",
+                    "The library returns to its sacred silence...",
+                    "A romance blooms thanks to the investigation..."
+                ]
+            }
+        },
+        "CaseRare1": {
+            "title": "Smugglers Cove",
+            "texts": {
+                "0": [
+                    "Reports of lights at the abandoned docks...",
+                    "Crates marked \"Bananas\" weigh far too much...",
+                    "The detective stakes out the foggy pier..."
+                ],
+                "1": [
+                    "Boats arrive under cover of darkness...",
+                    "Silhouettes exchange packages and cash...",
+                    "The operation is bigger than simple contraband..."
+                ],
+                "2": [
+                    "A raid is coordinated with harbor patrol...",
+                    "Smugglers scatter like roaches in the light...",
+                    "The ringleader is cornered on his boat..."
+                ],
+                "3": [
+                    "Illegal artifacts are seized for the museum...",
+                    "The port is secure once again...",
+                    "The sea gives up its secrets..."
+                ]
+            }
+        },
+        "CaseRare2": {
+            "title": "The Forgery Ring",
+            "texts": {
+                "0": [
+                    "Fake passports flood the black market...",
+                    "The quality is too high for amateurs...",
+                    "The detective traces the paper trail..."
+                ],
+                "1": [
+                    "Ink samples point to a specific print shop...",
+                    "A hidden basement reveals high-end presses...",
+                    "The master forger is hard at work..."
+                ],
+                "2": [
+                    "The operation is busted mid-print...",
+                    "Identities are protected, lives saved...",
+                    "The detective admires the skill, but arrests the artist..."
+                ],
+                "3": [
+                    "The press is dismantled, the plates destroyed...",
+                    "Border security breathes a sigh of relief...",
+                    "Truth remains the only valid currency..."
+                ]
+            }
+        },
+        "CaseRare3": {
+            "title": "The Long Con",
+            "texts": {
+                "0": [
+                    "Retirees are losing their life savings...",
+                    "A charismatic investor promises impossible returns...",
+                    "The detective follows the money trail..."
+                ],
+                "1": [
+                    "Shell companies lead to offshore accounts...",
+                    "The \"investor\" lives a life of luxury on stolen dreams...",
+                    "Evidence is gathered from disgruntled former employees..."
+                ],
+                "2": [
+                    "The pyramid scheme collapses under scrutiny...",
+                    "Assets are frozen before the flight risk takes off...",
+                    "The con artist is conned into a confession..."
+                ],
+                "3": [
+                    "Money is returned to the victims...",
+                    "Greed is punished, justice restored...",
+                    "A lesson that if it sounds too good to be true, it is..."
+                ]
+            }
+        },
+        "CaseVeteran1": {
+            "title": "Politicians Secret",
+            "texts": {
+                "0": [
+                    "A high-ranking official is acting strangely...",
+                    "A blackmail threat hangs over the upcoming election...",
+                    "The detective treads carefully in halls of power..."
+                ],
+                "1": [
+                    "Secret meetings in parking garages...",
+                    "Envelopes of cash exchange hands...",
+                    "The secret could destroy a career and destabilize the city..."
+                ],
+                "2": [
+                    "The truth involves a cover-up from years ago...",
+                    "The detective faces a moral dilemma...",
+                    "Public interest weighs against private shame..."
+                ],
+                "3": [
+                    "The official resigns, the blackmailers are exposed...",
+                    "Integrity is preserved through painful truth...",
+                    "The city deserves better leaders..."
+                ]
+            }
+        },
+        "CaseVeteran2": {
+            "title": "Syndicate War",
+            "texts": {
+                "0": [
+                    "Two rival families are on the brink of war...",
+                    "Territorial disputes turn violent on the streets...",
+                    "The detective must play both sides to find peace..."
+                ],
+                "1": [
+                    "Arms shipments are intercepted...",
+                    "Lieutenants are interrogated in safe houses...",
+                    "A third party is found stoking the flames..."
+                ],
+                "2": [
+                    "A sit-down is arranged under police surveillance...",
+                    "The instigator is revealed to be a double agent...",
+                    "The families realize they've been played..."
+                ],
+                "3": [
+                    "An uneasy truce is brokered...",
+                    "Bloodshed is averted for now...",
+                    "The underworld remains volatile but stable..."
+                ]
+            }
+        },
+        "EpicCase1": {
+            "title": "The Katana Butcher",
+            "texts": {
+                "0": [
+                    "A nightmare stalks the city streets under the veil of darkness...",
+                    "Bodies found with surgical precision, bisected by an ancient blade...",
+                    "Fear grips the populace as the butcher strikes again and again...",
+                    "The detective enters a world of ritualistic horror..."
+                ],
+                "1": [
+                    "Blade analysis reveals a ceremonial katana from feudal Japan...",
+                    "Each strike demonstrates master-level swordsmanship...",
+                    "Blood spatter patterns tell stories of lightning-fast executions...",
+                    "This killer is no amateur - this is an artist of death..."
+                ],
+                "2": [
+                    "Patterns emerge from the chaos - a method to the madness...",
+                    "Ancient warrior codes guide the butcher's selection of victims...",
+                    "The murders form a symbol visible only from above...",
+                    "This isn't random violence - it's a dark ritual..."
+                ],
+                "3": [
+                    "The final confrontation unfolds in blood and steel...",
+                    "Master versus master in a dance of death...",
+                    "The butcher's reign of terror ends in poetic justice...",
+                    "The city can breathe again, but the scars remain..."
+                ]
+            }
+        },
+        "EpicCase2": {
+            "title": "The Mutated Beast",
+            "texts": {
+                "0": [
+                    "Reports flood in - something unnatural prowls the sewers...",
+                    "Witnesses speak of a creature too horrific to be real...",
+                    "Science and nightmare have merged into living terror...",
+                    "The detective descends into darkness to face the impossible..."
+                ],
+                "1": [
+                    "Biological samples defy all known classification...",
+                    "DNA analysis reveals genetic tampering on a massive scale...",
+                    "This is not evolution - this is deliberate creation...",
+                    "Someone played God and birthed a monster..."
+                ],
+                "2": [
+                    "The creature's mutations serve a terrible purpose...",
+                    "Illegal experiments transform human into beast...",
+                    "The truth is more horrifying than the creature itself...",
+                    "Corporate greed elevated to crimes against nature..."
+                ],
+                "3": [
+                    "The beast is neutralized with extreme prejudice...",
+                    "Its creators are dragged into the light to face judgment...",
+                    "The nightmare ends but questions linger forever...",
+                    "Some doors should never be opened..."
+                ]
+            }
+        },
+        "EpicCase3": {
+            "title": "The Shadow Government",
+            "texts": {
+                "0": [
+                    "Whispers of a cabal controlling the city from within...",
+                    "Decisions made before votes are cast...",
+                    "The detective pulls a thread that could unravel society...",
+                    "Surveillance reveals faces that \"don't exist\"..."
+                ],
+                "1": [
+                    "A secret bunker found beneath the metro system...",
+                    "Operations running on unauthorized power grids...",
+                    "They watch everyone, everywhere...",
+                    "The scale of control is terrifying..."
+                ],
+                "2": [
+                    "Infiltrating the inner circle requires impossible risks...",
+                    "Codes are broken, firewalls breached...",
+                    "The puppeteers are identified...",
+                    "Democracy is a facade they maintain..."
+                ],
+                "3": [
+                    "The network is exposed to the press...",
+                    "The shadow leaders vanish into the wind...",
+                    "The city wakes up to a harsh reality...",
+                    "Freedom is reclaimed, but at what cost..."
+                ]
+            }
+        },
+        "EpicCase4": {
+            "title": "The Time Traveler",
+            "texts": {
+                "0": [
+                    "Artifacts from the future appear in antique shops...",
+                    "A figure is seen in photos from 1920, 1950, and today...",
+                    "The timeline is bleeding...",
+                    "The detective investigates the impossible..."
+                ],
+                "1": [
+                    "Technology beyond understanding is recovered...",
+                    "The traveler claims to be fixing history...",
+                    "Paradoxes threaten to unmake reality...",
+                    "Is he a savior or a destroyer?"
+                ],
+                "2": [
+                    "Temporal rifts open in the city square...",
+                    "Past, present, and future collide...",
+                    "The detective must help close the loop...",
+                    "A choice between saving one life or saving time itself..."
+                ],
+                "3": [
+                    "The traveler returns to his time...",
+                    "The timeline stabilizes, memories fade...",
+                    "Only the detective remembers the future that was...",
+                    "History flows on, corrected..."
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,208 @@
+.injury-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9998;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.injury-notification {
+    position: fixed;
+    top: 50%;
+    left: -100%;
+    transform: translate(0, -50%);
+    z-index: 9999;
+    transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.injury-notification.slide-in {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.injury-panel {
+    background: linear-gradient(135deg, #8b1a1a 0%, #5a0f0f 100%);
+    border: 4px solid #2a0505;
+    border-radius: 8px;
+    box-shadow:
+        0 0 0 2px #4a0a0a,
+        0 8px 32px rgba(220, 20, 60, 0.6),
+        0 0 60px rgba(220, 20, 60, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1);
+    padding: 30px 40px;
+    min-width: 500px;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pixel art texture effect */
+.injury-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.1) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 3px),
+        repeating-linear-gradient(90deg,
+            rgba(0, 0, 0, 0.1) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 3px);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Blood drip effect at top */
+.injury-panel::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #dc143c 0%, #8b0000 70%, transparent 100%);
+    filter: drop-shadow(0 4px 8px rgba(220, 20, 60, 0.6));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.injury-alert-icon {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    filter: drop-shadow(0 0 10px rgba(255, 200, 0, 0.8));
+    animation: bounce 0.8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.injury-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.injury-title {
+    font-family: 'Minecraftia', monospace;
+    font-size: 28px;
+    color: #fff;
+    margin: 0 0 16px 0;
+    text-shadow:
+        2px 2px 0 #000,
+        0 0 20px rgba(220, 20, 60, 0.8);
+    letter-spacing: 2px;
+    min-height: 36px;
+}
+
+.injury-subtitle {
+    font-family: 'Minecraftia', monospace;
+    font-size: 14px;
+    color: #ffcccc;
+    margin: 0 0 20px 0;
+    text-shadow: 1px 1px 0 #000;
+    min-height: 20px;
+}
+
+.cursor {
+    opacity: 0.8;
+    animation: blink 0.8s step-end infinite;
+    margin-left: 4px;
+}
+
+.injury-type {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.injury-type-label {
+    display: block;
+    font-family: 'Minecraftia', monospace;
+    font-size: 16px;
+    color: #ff6b6b;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0 #000;
+    font-weight: bold;
+}
+
+.injury-description {
+    display: block;
+    font-family: 'Minecraftia', monospace;
+    font-size: 11px;
+    color: #ddd;
+    text-shadow: 1px 1px 0 #000;
+    font-style: italic;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.2);
+    }
+}
