@@ -172,7 +172,22 @@ export function updateCaseProgress() {
         if (caseObj.assignedDetectiveId && caseObj.startTime) {
             const elapsed = (currentTime - caseObj.startTime) / 1000;
             const efficiencyMult = gameState.getEfficiencyMultiplier();
-            const progress = Math.min((elapsed / caseObj.duration) * 100 * efficiencyMult, 100);
+
+            // Get Detective Stats for Bonus Speed
+            const stats = gameState.getDetectiveStats(caseObj.assignedDetectiveId);
+            let detectiveSpeedMult = 1.0;
+
+            if (stats) {
+                // Sum up all speed bonuses (percentage)
+                // thinking_speed, evidence_speed, case_speed (arrival speed)
+                // Treat them all as "Work Speed" for simplicity in this abstract logic
+                const totalBonus = (stats.thinkingSpeed || 0) + (stats.evidenceSpeed || 0) + (stats.caseSpeed || 0);
+                if (totalBonus > 0) {
+                    detectiveSpeedMult += (totalBonus / 100);
+                }
+            }
+
+            const progress = Math.min((elapsed / caseObj.duration) * 100 * efficiencyMult * detectiveSpeedMult, 100);
 
             // Update text index based on progress (0-3 stages)
             const textIndex = Math.min(Math.floor((progress / 100) * 4), 3);

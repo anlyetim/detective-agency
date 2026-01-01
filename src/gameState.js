@@ -423,8 +423,19 @@ class GameState {
     completeCase(caseId) {
         const caseObj = this.state.cases.find(c => c.id === caseId);
         if (caseObj && caseObj.assignedDetectiveId) {
-            this.unassignDetective(caseObj.assignedDetectiveId);
-            this.addCurrency(caseObj.reward);
+            const detectiveId = caseObj.assignedDetectiveId;
+            const stats = this.getDetectiveStats(detectiveId);
+
+            this.unassignDetective(detectiveId);
+
+            // Calculate Rewards with Bonuses
+            let cashReward = caseObj.reward;
+            if (stats && stats.incomeBoost > 0) {
+                // Apply income boost (percentage)
+                cashReward += Math.floor(cashReward * (stats.incomeBoost / 100));
+            }
+
+            this.addCurrency(cashReward);
             this.addExperience(caseObj.experienceReward);
 
             // Track case completion by difficulty
@@ -854,6 +865,45 @@ class GameState {
     injureDetective(detectiveId) {
         const detective = this.state.detectives.find(d => d.id === detectiveId);
         if (detective && !detective.injured) {
+            // CHECK DODGE CHANCE
+            const stats = this.getDetectiveStats(detectiveId);
+            if (stats.dodgeChance > 0) {
+                // If dodge chance is 100% or roll success
+                if (Math.random() < (stats.dodgeChance / 100)) {
+                    this.addNewsEvent({
+                        title: 'Attack Dodged!',
+                        description: `${detective.name} narrowly avoided an injury thanks to their equipment!`,
+                        effect: 'Dodge',
+                        timestamp: Date.now()
+                    });
+                    return null; // Dodged!
+                }
+            }
+
+            // CHECK IMMUNITY (Katana) or High Injury Reduction
+            // If injury reduction > 100 (percentage), immune? Or just reduce chance?
+            // The user said "Katana: Immune".
+            if (stats.injuryReduction >= 100) {
+                this.addNewsEvent({
+                    title: 'Attack Parried!',
+                    description: `${detective.name} deflected the attack effortlessly!`,
+                    effect: 'Immune',
+                    timestamp: Date.now()
+                });
+                return null;
+            }
+
+            // If we are here, injury happens. 
+            // Note: Injury Reduction ("Risk -%") usually means "Lower chance to get injured".
+            // Since `updateNews` picks a random victim, we should apply the "Risk Reduction" check HERE.
+            // If detective has 50% injury reduction, we roll again?
+            if (stats.injuryReduction > 0) {
+                if (Math.random() < (stats.injuryReduction / 100)) {
+                    // Successfully mitigated the risk (no injury)
+                    return null;
+                }
+            }
+
             detective.injured = true;
             detective.assigned = false; // Force unassign
             detective.caseId = null;
@@ -867,10 +917,15 @@ class GameState {
             detective.injuryHealMethod = injuryData.healMethod;
             detective.injuryHealCost = injuryData.healCost;
 
-            // Calculate heal time with recovery bonus if time-based
+            // Calculate heal time with recovery bonus + ITEM HEALING SPEED
             if (injuryData.healMethod === 'time') {
-                const recoveryBonus = this.getRecoverySpeedBonus();
-                const healTimeReduced = injuryData.healTime * (1 - recoveryBonus);
+                const upgradeBonus = this.getRecoverySpeedBonus(); // 0.05 per level
+                const itemBonus = (stats.healingSpeed || 0) / 100; // e.g. 50% -> 0.5
+
+                // Total reduction. Cap at 90% reduction maybe?
+                const totalReduction = Math.min(upgradeBonus + itemBonus, 0.90);
+
+                const healTimeReduced = injuryData.healTime * (1 - totalReduction);
                 detective.injuryHealTime = Date.now() + healTimeReduced;
             } else {
                 detective.injuryHealTime = null;
