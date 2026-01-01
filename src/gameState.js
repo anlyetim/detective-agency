@@ -321,7 +321,91 @@ class GameState {
         this.saveState();
     }
 
+    // ===== CASE MANAGEMENT METHODS =====
+    addCase(caseObj) {
+        this.state.cases.push(caseObj);
+        this.saveState();
+    }
 
+    removeCase(caseId) {
+        this.state.cases = this.state.cases.filter(c => c.id !== caseId);
+        this.saveState();
+    }
+
+    updateCase(caseId, updates) {
+        const caseObj = this.state.cases.find(c => c.id === caseId);
+        if (caseObj) {
+            Object.assign(caseObj, updates);
+            this.saveState();
+        }
+    }
+
+    assignDetectiveToCase(detectiveId, caseId) {
+        const detective = this.state.detectives.find(d => d.id === detectiveId);
+        const caseObj = this.state.cases.find(c => c.id === caseId);
+
+        if (detective && caseObj) {
+            detective.assigned = true;
+            detective.caseId = caseId;
+            caseObj.assignedDetectiveId = detectiveId;
+            caseObj.startTime = Date.now();
+            this.saveState();
+        }
+    }
+
+    unassignDetective(detectiveId) {
+        const detective = this.state.detectives.find(d => d.id === detectiveId);
+        if (detective) {
+            const caseObj = this.state.cases.find(c => c.assignedDetectiveId === detectiveId);
+            if (caseObj) {
+                caseObj.assignedDetectiveId = null;
+                caseObj.startTime = null;
+            }
+            detective.assigned = false;
+            detective.caseId = null;
+            this.saveState();
+        }
+    }
+
+    completeCase(caseId) {
+        const caseObj = this.state.cases.find(c => c.id === caseId);
+        if (caseObj && caseObj.assignedDetectiveId) {
+            const detectiveId = caseObj.assignedDetectiveId;
+            const stats = this.getDetectiveStats(detectiveId);
+
+            this.unassignDetective(detectiveId);
+
+            // Calculate Rewards with Bonuses
+            let cashReward = caseObj.reward;
+            if (stats && stats.incomeBoost > 0) {
+                cashReward += Math.floor(cashReward * (stats.incomeBoost / 100));
+            }
+
+            this.addCurrency(cashReward);
+            this.addExperience(caseObj.experienceReward);
+
+            // Track case completion by difficulty
+            if (caseObj.difficulty === 'COMMON') this.state.completedCommonCases++;
+            if (caseObj.difficulty === 'VETERAN') this.state.completedVeteranCases++;
+
+            this.removeCase(caseId);
+            this.state.completedCases++;
+
+            // Random item drop (30% chance)
+            if (Math.random() < 0.3) {
+                this.addItem(this.generateRandomItem());
+            }
+
+            this.checkUnlocks();
+            this.saveState();
+        }
+    }
+
+    // ===== AUTO-ASSIGN METHODS =====
+    toggleAutoAssign() {
+        this.state.autoAssignMode = !this.state.autoAssignMode;
+        this.saveState();
+    }
 
     healDetective(detectiveId, useCurrency = false) {
         const detective = this.state.detectives.find(d => d.id === detectiveId);
