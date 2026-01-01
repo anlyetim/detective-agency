@@ -630,8 +630,8 @@ class GameState {
         // Mood Influence Decay (Trend towards 50)
         // Decay happens once per second (called by game loop)
         if (this.state.moodInfluence !== undefined) {
-            if (this.state.moodInfluence > 50) this.state.moodInfluence = Math.max(50, this.state.moodInfluence - 0.5); // Slow decay down
-            else if (this.state.moodInfluence < 50) this.state.moodInfluence = Math.min(50, this.state.moodInfluence + 0.5); // Slow recovery up
+            if (this.state.moodInfluence > 50) this.state.moodInfluence = Math.max(50, this.state.moodInfluence - 0.1); // Slow decay down
+            else if (this.state.moodInfluence < 50) this.state.moodInfluence = Math.min(50, this.state.moodInfluence + 0.1); // Slow recovery up
         } else {
             this.state.moodInfluence = 50;
         }
@@ -721,7 +721,7 @@ class GameState {
                 // Injury Risk
                 titleKey = 'newspaper.events.INJURY_RISK.title';
                 descriptionKey = 'newspaper.events.INJURY_RISK.description';
-                this.state.moodInfluence = Math.min(100, influence + 5);
+                this.state.moodInfluence = Math.min(100, influence + 25);
             } else {
                 // Funding Bonus
                 this.state.moodInfluence = influence;
@@ -1036,6 +1036,48 @@ class GameState {
         }
     }
     // ===== ITEM SYSTEM METHODS =====
+    addItem(item) {
+        if (!item) return;
+
+        // Ensure items array exists
+        if (!this.state.items) {
+            this.state.items = [];
+        }
+
+        this.state.items.push(item);
+
+        // Add news event for item drop
+        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
+        const def = ITEM_DEFINITIONS[item.definitionId];
+
+        this.addNewsEvent({
+            titleKey: 'newspaper.events.ITEM_FOUND.title',
+            descriptionKey: 'newspaper.events.ITEM_FOUND.description',
+            params: { name: def ? def.nameKey /* will be localized in UI */ : 'Item' },
+            title: 'Item Found!',
+            description: `You found a ${def ? def.id : 'item'}!`,
+            timestamp: Date.now(),
+            effect: 'New Item'
+        });
+
+        this.saveState();
+    }
+
+    generateRandomItem() {
+        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
+        const keys = Object.keys(ITEM_DEFINITIONS);
+        if (keys.length === 0) return null;
+
+        const randomKey = keys[Math.floor(Math.random() * keys.length)];
+
+        return {
+            id: Date.now() + Math.random().toString(36).substr(2, 9),
+            definitionId: randomKey,
+            level: 1,
+            acquiredAt: Date.now()
+        };
+    }
+
     upgradeItem(itemId) {
         const item = this.state.items.find(i => i.id === itemId);
         if (!item) return false;

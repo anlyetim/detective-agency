@@ -349,6 +349,10 @@
                 "title": "Trafik Kilitlendi",
                 "description": "Ana arterlerdeki kaza sonucu trafik durma noktasında."
             },
+            "ITEM_FOUND": {
+                "title": "Eşya Bulundu!",
+                "description": "Bir {{name}} buldun!"
+            },
             "SUBWAY_DELAY": {
                 "title": "Metro Arızası",
                 "description": "Teknik bir arıza nedeniyle seferler aksıyor."

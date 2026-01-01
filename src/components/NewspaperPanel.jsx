@@ -95,7 +95,10 @@ export default function NewspaperPanel({ onStateChange }) {
                                 {formatTime(event.timestamp)}
                             </div>
                             <div className="newspaper-body">
-                                {event.descriptionKey ? t(event.descriptionKey, event.params) : event.description}
+                                {event.descriptionKey ? t(event.descriptionKey, {
+                                    ...event.params,
+                                    name: event.params && event.params.name && event.params.name.startsWith('items.') ? t(event.params.name) : (event.params ? event.params.name : '')
+                                }) : event.description}
                             </div>
                         </div>
                     ))

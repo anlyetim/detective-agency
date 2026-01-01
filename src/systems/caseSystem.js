@@ -18,7 +18,7 @@ const DIFFICULTIES = {
         rarity: 'COMMON',
         duration: 30,
         reward: 50,
-        experienceReward: 10,
+        experienceReward: 25,
         requiredStats: { speed: 3, evidence: 3, intelligence: 3, risk: 2 }
     },
     RARE: {
@@ -27,7 +27,7 @@ const DIFFICULTIES = {
         rarity: 'RARE',
         duration: 60,
         reward: 150,
-        experienceReward: 30,
+        experienceReward: 75,
         requiredStats: { speed: 5, evidence: 5, intelligence: 5, risk: 4 }
     },
     VETERAN: {
@@ -36,7 +36,7 @@ const DIFFICULTIES = {
         rarity: 'VETERAN',
         duration: 120,
         reward: 400,
-        experienceReward: 80,
+        experienceReward: 200,
         requiredStats: { speed: 7, evidence: 7, intelligence: 7, risk: 6 }
     },
     EPIC: {
@@ -45,7 +45,7 @@ const DIFFICULTIES = {
         rarity: 'EPIC',
         duration: 180,
         reward: 1000,
-        experienceReward: 200,
+        experienceReward: 500,
         requiredStats: { speed: 9, evidence: 9, intelligence: 9, risk: 8 }
     }
 };

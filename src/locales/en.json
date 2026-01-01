@@ -348,6 +348,10 @@
                 "title": "Subway Delay",
                 "description": "Technical fault causes transit delays."
             },
+            "ITEM_FOUND": {
+                "title": "Item Found!",
+                "description": "You found a {{name}}!"
+            },
             "LOCAL_HERO": {
                 "title": "Local Hero",
                 "description": "Citizen saves neighbor from burning building."
