@@ -275,6 +275,8 @@ class GameState {
                 if (!this.state.newsEvents) this.state.newsEvents = [];
                 if (!this.state.nextEventId) this.state.nextEventId = 1;
                 if (this.state.autoAssignUnlocked === undefined) this.state.autoAssignUnlocked = false;
+                if (this.state.completedCases === undefined) this.state.completedCases = 0;
+                if (this.state.level === undefined) this.state.level = 1;
                 // Ensure all detectives have injury and equipment fields
                 this.state.detectives.forEach(d => {
                     if (d.injured === undefined) d.injured = false;
@@ -368,8 +370,10 @@ class GameState {
     }
 
     completeCase(caseId) {
+        console.log('[DEBUG] completeCase called with id:', caseId);
         const caseObj = this.state.cases.find(c => c.id === caseId);
         if (caseObj && caseObj.assignedDetectiveId) {
+            console.log('[DEBUG] Valid case found, processing completion');
             const detectiveId = caseObj.assignedDetectiveId;
             const stats = this.getDetectiveStats(detectiveId);
 
@@ -383,6 +387,7 @@ class GameState {
 
             this.addCurrency(cashReward);
             this.addExperience(caseObj.experienceReward);
+            console.log('[DEBUG] Added currency:', cashReward, 'XP:', caseObj.experienceReward);
 
             // Track case completion by difficulty
             if (caseObj.difficulty === 'COMMON') this.state.completedCommonCases++;
@@ -390,20 +395,30 @@ class GameState {
 
             this.removeCase(caseId);
             this.state.completedCases++;
+            console.log('[DEBUG] Total completed cases:', this.state.completedCases);
 
             // Check for level up based on completed cases
             this.checkLevelUp();
+            console.log('[DEBUG] After checkLevelUp, level is:', this.state.level);
 
             // Random item drop (30% chance)
             if (Math.random() < 0.3) {
+                console.log('[DEBUG] Item drop triggered!');
                 const newItem = this.generateRandomItem();
+                console.log('[DEBUG] Generated item:', newItem);
                 if (newItem) {
                     this.addItem(newItem);
+                    console.log('[DEBUG] Item added to inventory');
                 }
+            } else {
+                console.log('[DEBUG] No item drop (roll failed)');
             }
 
             this.checkUnlocks();
             this.saveState();
+            console.log('[DEBUG] Case completion finished, state saved');
+        } else {
+            console.log('[DEBUG] completeCase failed - no valid case or no detective assigned');
         }
     }
 
