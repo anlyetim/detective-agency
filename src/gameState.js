@@ -936,11 +936,13 @@ class GameState {
     upgradeItem(itemId) {
         const item = this.state.items.find(i => i.id === itemId);
         if (!item) return false;
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
-        const def = ITEM_DEFINITIONS[item.definitionId];
+
+        const def = this.getItemDefinition(item.definitionId);
         if (!def || item.level >= def.maxLevel) return false;
+
         const cost = Math.floor(def.upgradeCostBase * (item.level + 1) * 1.5);
         if (this.state.currency < cost) return false;
+
         this.state.currency -= cost;
         item.level++;
         this.saveState();
