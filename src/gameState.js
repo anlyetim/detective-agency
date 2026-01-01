@@ -946,34 +946,10 @@ class GameState {
         this.saveState();
         return true;
     }
-
-    getItemDefinition(definitionId) {
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
-        return ITEM_DEFINITIONS[definitionId];
-    }
-
-    getItemEffect(item) {
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
-        const def = ITEM_DEFINITIONS[item.definitionId];
-        if (!def) return 0;
-        return def.baseValue + (def.valuePerLevel * (item.level - 1));
-    }
-
-    getItemUpgradeCost(item) {
-        const { ITEM_DEFINITIONS } = require('./systems/itemSystem.js');
-        const def = ITEM_DEFINITIONS[item.definitionId];
-        if (!def || item.level >= def.maxLevel) return null;
-        return Math.floor(def.upgradeCostBase * (item.level + 1) * 1.5);
-    }
-
 }
 
 // Create singleton instance
 const gameState = new GameState();
-
-/* eslint-disable no-undef */
-import { ITEM_DEFINITIONS } from './systems/itemSystem.js';
-import React from 'react';
 
 export default gameState;
 
