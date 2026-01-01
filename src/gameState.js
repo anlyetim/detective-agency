@@ -1,7 +1,39 @@
+import { ITEM_DEFINITIONS } from './systems/itemSystem.js';
+
 // Centralized game state management with detective unlocks and items
 class GameState {
     constructor() {
         this.loadState();
+    }
+
+    getItemDefinition(definitionId) {
+        return ITEM_DEFINITIONS[definitionId];
+    }
+
+    getItemEffect(item) {
+        const def = this.getItemDefinition(item.definitionId);
+        if (!def) return 0;
+        return def.baseValue + (def.valuePerLevel * (item.level - 1));
+    }
+
+    getItemUpgradeCost(item) {
+        const def = this.getItemDefinition(item.definitionId);
+        if (!def) return 999999;
+        return Math.floor(def.upgradeCostBase * Math.pow(1.5, item.level - 1));
+    }
+
+    upgradeItem(itemId) {
+        const item = this.state.items.find(i => i.id === itemId);
+        if (item) {
+            const cost = this.getItemUpgradeCost(item);
+            if (this.state.currency >= cost && item.level < 3) {
+                this.state.currency -= cost;
+                item.level++;
+                this.saveState();
+                return true;
+            }
+        }
+        return false;
     }
 
     // Upgrade Definitions (Static)
@@ -888,16 +920,16 @@ class GameState {
     }
 
     generateRandomItem() {
-        const keys = Object.keys(ITEM_DEFINITIONS);
-        if (keys.length === 0) return null;
+        // ITEM_DEFINITIONS is imported at top of file
+        const itemIds = Object.keys(ITEM_DEFINITIONS);
+        if (itemIds.length === 0) return null; // Added this check back for safety
 
-        const randomKey = keys[Math.floor(Math.random() * keys.length)];
+        const randomId = itemIds[Math.floor(Math.random() * itemIds.length)];
 
         return {
-            id: Date.now() + Math.random().toString(36).substr(2, 9),
-            definitionId: randomKey,
-            level: 1,
-            acquiredAt: Date.now()
+            id: this.state.nextItemId++,
+            definitionId: randomId,
+            level: 1
         };
     }
 
