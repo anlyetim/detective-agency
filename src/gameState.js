@@ -802,6 +802,58 @@ class GameState {
         return false;
     }
 
+    getDetectiveStats(detectiveId) {
+        const detective = this.state.detectives.find(d => d.id === detectiveId);
+        if (!detective) return null;
+
+        const stats = {
+            speed: detective.speed,
+            evidence: detective.evidence,
+            intelligence: detective.intelligence,
+            risk: detective.risk,
+
+            // New derived stats
+            caseSpeed: 0, // % bonus
+            evidenceSpeed: 0, // % bonus
+            thinkingSpeed: 0, // % bonus
+            healingSpeed: 0, // % bonus
+            injuryReduction: 0, // % reduction
+            dodgeChance: 0, // % chance
+            incomeBoost: 0 // % bonus
+        };
+
+        // Apply equipment effects
+        if (detective.equipment) {
+            detective.equipment.forEach(itemId => {
+                if (!itemId) return;
+                const item = this.state.items.find(i => i.id === itemId);
+                if (item) {
+                    const effectVal = this.getItemEffect(item);
+                    const def = this.getItemDefinition(item.definitionId);
+
+                    if (def) {
+                        switch (def.effectType) {
+                            case 'stat_speed': stats.speed += Math.floor(effectVal); break;
+                            case 'stat_evidence': stats.evidence += Math.floor(effectVal); break;
+                            case 'stat_intelligence': stats.intelligence += Math.floor(effectVal); break;
+                            case 'stat_risk': stats.risk += Math.floor(effectVal); break;
+
+                            case 'case_speed': stats.caseSpeed += effectVal; break;
+                            case 'evidence_speed': stats.evidenceSpeed += effectVal; break;
+                            case 'thinking_speed': stats.thinkingSpeed += effectVal; break;
+                            case 'healing_speed': stats.healingSpeed += effectVal; break;
+                            case 'injury_reduction': stats.injuryReduction += effectVal; break;
+                            case 'dodge_chance': stats.dodgeChance += effectVal; break;
+                            case 'income_boost': stats.incomeBoost += effectVal; break;
+                        }
+                    }
+                }
+            });
+        }
+
+        return stats;
+    }
+
     getInjuryInfo(detectiveId) {
         const detective = this.state.detectives.find(d => d.id === detectiveId);
         if (!detective || !detective.injured) return null;
