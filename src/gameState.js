@@ -391,9 +391,15 @@ class GameState {
             this.removeCase(caseId);
             this.state.completedCases++;
 
+            // Check for level up based on completed cases
+            this.checkLevelUp();
+
             // Random item drop (30% chance)
             if (Math.random() < 0.3) {
-                this.addItem(this.generateRandomItem());
+                const newItem = this.generateRandomItem();
+                if (newItem) {
+                    this.addItem(newItem);
+                }
             }
 
             this.checkUnlocks();
@@ -457,16 +463,24 @@ class GameState {
         this.saveState();
     }
 
-    // XP Thresholds for Levels based on cases (5, 10, 15, 25)
-    static XP_THRESHOLDS = [0, 125, 375, 750, 1375, 2000, 3000, 4000, 5000, 10000];
+    // Case thresholds for leveling: cumulative cases needed for each level
+    // Level 2 needs 5, Level 3 needs 10 total, Level 4 needs 15 total, etc.
+    static CASE_THRESHOLDS = [0, 5, 10, 15, 25, 50, 60, 70, 80, 90, 100, 125, 150, 175, 200, 250, 300, 350];
 
     addExperience(amount) {
+        // XP is now a separate currency, just add it
         this.state.experience += amount;
+        this.saveState();
+    }
 
-        // Calculate Level based on thresholds
+    // Called after completing a case to check for level up
+    checkLevelUp() {
+        const completedCases = this.state.completedCases;
+
+        // Calculate Level based on completed cases thresholds
         let newLevel = 1;
-        for (let i = 0; i < GameState.XP_THRESHOLDS.length; i++) {
-            if (this.state.experience >= GameState.XP_THRESHOLDS[i]) {
+        for (let i = 0; i < GameState.CASE_THRESHOLDS.length; i++) {
+            if (completedCases >= GameState.CASE_THRESHOLDS[i]) {
                 newLevel = i + 1;
             } else {
                 break;
@@ -474,13 +488,11 @@ class GameState {
         }
 
         if (newLevel > this.state.level) {
-            // Level Up Event could be triggered here
             this.state.level = newLevel;
             this.checkUnlocks();
 
             // Notification for unlocking Newspaper at Level 5
             if (newLevel === 5) {
-                // This will be handled by UI observing the level
                 this.addNewsEvent({
                     titleKey: 'newspaper.events.NEWSPAPER_UNLOCKED.title',
                     descriptionKey: 'newspaper.events.NEWSPAPER_UNLOCKED.description',
@@ -490,31 +502,32 @@ class GameState {
                     effect: 'Unlock'
                 });
             }
+
+            this.saveState();
         }
-        this.saveState();
     }
 
     getLevelProgress() {
         const currentLevel = this.state.level; // 1-based
-        const currentXP = this.state.experience; // Total XP
+        const completedCases = this.state.completedCases;
 
         // If max level
-        if (currentLevel >= GameState.XP_THRESHOLDS.length) return 100;
+        if (currentLevel >= GameState.CASE_THRESHOLDS.length) return 100;
 
-        const currentThreshold = GameState.XP_THRESHOLDS[currentLevel - 1]; // XP needed for current level start
-        const nextThreshold = GameState.XP_THRESHOLDS[currentLevel]; // XP needed for next level
+        const currentThreshold = GameState.CASE_THRESHOLDS[currentLevel - 1]; // Cases needed for current level
+        const nextThreshold = GameState.CASE_THRESHOLDS[currentLevel]; // Cases needed for next level
 
         // Prevent division by zero
         if (nextThreshold === currentThreshold) return 100;
 
-        const progress = Math.min(Math.max((currentXP - currentThreshold) / (nextThreshold - currentThreshold) * 100, 0), 100);
+        const progress = Math.min(Math.max((completedCases - currentThreshold) / (nextThreshold - currentThreshold) * 100, 0), 100);
         return progress;
     }
 
-    getNextLevelXP() {
+    getNextLevelCases() {
         const currentLevel = this.state.level;
-        if (currentLevel >= GameState.XP_THRESHOLDS.length) return 'MAX';
-        return GameState.XP_THRESHOLDS[currentLevel];
+        if (currentLevel >= GameState.CASE_THRESHOLDS.length) return 'MAX';
+        return GameState.CASE_THRESHOLDS[currentLevel];
     }
 
     // Newspaper System
